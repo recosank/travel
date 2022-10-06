@@ -47,7 +47,9 @@ const SectionC = () => {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
-      sx={{ zIndex: "20" }}
+      sx={{
+        zIndex: "20",
+      }}
     >
       <Typography
         variant={matchesMD ? (matchesLG ? "h4" : "h5") : "h6"}
@@ -63,6 +65,9 @@ const SectionC = () => {
           width: matchesMD ? (matchesXL ? "60%" : "80%") : "100%",
           boxShadow: "15px 10px 25px -25px black",
           borderRadius: "15px",
+          "&:hover": {
+            backgroundColor: "#fafafa",
+          },
         }}
       >
         <ArrowBackIosIcon

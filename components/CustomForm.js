@@ -22,14 +22,15 @@ const CustomForm = () => {
     name: "",
     email: "",
     phone: "",
-    package: "Select Package",
-    month: "Select Month",
+    package: 0,
+    month: 0,
   };
   const [data, setdata] = useState(init);
 
   const handleChange = (e) => {
     e.preventDefault();
     setdata({ ...data, [e.target.name]: e.target.value });
+    console.log(data);
   };
 
   return (
@@ -71,7 +72,7 @@ const CustomForm = () => {
           name="name"
           value={data.name}
           id="filled-hidden-label-small"
-          sx={{ backgroundColor: "white", borderRadius: "5px" }}
+          sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
           variant="filled"
           onChange={(e) => handleChange(e)}
         />
@@ -82,7 +83,7 @@ const CustomForm = () => {
           placeholder="Email"
           name="email"
           value={data.email}
-          sx={{ backgroundColor: "white", borderRadius: "5px" }}
+          sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
           variant="filled"
           onChange={(e) => handleChange(e)}
         />
@@ -93,15 +94,11 @@ const CustomForm = () => {
           name="phone"
           value={data.phone}
           id="filled-hidden-label-small"
-          sx={{ backgroundColor: "white", borderRadius: "5px", opacity: "1" }}
+          sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px", opacity: "1" }}
           variant="filled"
           onChange={(e) => handleChange(e)}
         />
-        <FormControl
-          fullWidth
-          hiddenLabel
-          size={matchesLG ? "medium" : "small"}
-        >
+        <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -109,14 +106,16 @@ const CustomForm = () => {
             label="Select Package"
             placeholder="select package"
             name="package"
+            inputProps={{ "aria-label": "Without label" }}
             sx={{
-              backgroundColor: "lightGray",
+              backgroundColor: "#e3f2fd",
               borderRadius: "5px",
               padding: "0px",
               margin: "0px",
             }}
             onChange={(e) => handleChange(e)}
           >
+            <MenuItem value={0}>Select Package</MenuItem>
             <MenuItem value={10}>BASIC</MenuItem>
             <MenuItem value={20}>GOLD</MenuItem>
             <MenuItem value={30}>PREMIUM</MenuItem>
@@ -133,9 +132,10 @@ const CustomForm = () => {
             value={data.month}
             label="Select Month"
             name="month"
-            sx={{ backgroundColor: "lightgray", borderRadius: "5px" }}
+            sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
             onChange={(e) => handleChange(e)}
           >
+            <MenuItem value={0}>Select Month</MenuItem>
             <MenuItem value="January">January</MenuItem>
             <MenuItem value="February">February</MenuItem>
             <MenuItem value="March">March</MenuItem>
