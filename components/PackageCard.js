@@ -37,6 +37,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
       <Box
         p={2}
         sx={{
+          position: "relative",
           height: matchesMD ? (matchesXL ? "23rem" : "18rem") : "15rem",
         }}
       >
@@ -61,7 +62,8 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
             backgroundColor: "white",
             color: "#00754A",
             fontSize: matchesXL ? "0.8rem" : "0.6rem",
-            marginTop: matchesMD ? (matchesXL ? "14rem" : "9rem") : "5rem",
+            bottom: "18%",
+
             marginLeft: matchesMD ? "-8rem" : "-7rem",
           }}
         >
@@ -169,6 +171,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
         mrg="2%"
         mrgb="4%"
         fill="false"
+        click="true"
       />
     </Card>
   );

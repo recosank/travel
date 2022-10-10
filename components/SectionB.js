@@ -64,7 +64,9 @@ const SectionB = () => {
       </Grid>
 
       <ButtonCustom
+        href="#topex"
         content="Enquire more"
+        click="true"
         fill="true"
         wd={matchesMD ? (matches ? (matchesLG ? "20%" : "30%") : "50%") : "80%"}
         pdy="0.9rem"

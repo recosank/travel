@@ -10,10 +10,15 @@ const ButtonCustom = ({
   pdx,
   mrg,
   mrgb,
+  click,
 }) => {
   return (
     <Button
       variant="outlined"
+      href={click == "true" && "#topex"}
+      onClick={() => {
+        click == "true" && <a href="#topex"> .</a>;
+      }}
       sx={{
         "&:hover": {
           backgroundColor: "rgba(0, 0, 0, 0.51)",
