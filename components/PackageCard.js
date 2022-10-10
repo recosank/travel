@@ -25,10 +25,8 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
   return (
     <Card
       sx={{
-        "&:hover": {
-          boxShadow: "0px 2px 35px -10px blue",
-        },
-        width: "100%",
+        width: "90%",
+        margin: "auto",
         textAlign: "center",
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 25px -10px black",
@@ -39,7 +37,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
       <Box
         p={2}
         sx={{
-          height: matchesMD ? (matchesXL ? "19rem" : "14rem") : "10rem",
+          height: matchesMD ? (matchesXL ? "23rem" : "18rem") : "15rem",
         }}
       >
         <Image
@@ -70,7 +68,6 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
           Rs. {price}
         </Button>
       </Box>
-
       <CardActionArea>
         <CardContent
           sx={{
@@ -138,7 +135,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
           </Typography>
           {quality.map((data, key) => {
             return (
-              <Box display="flex" key={key} my={0.5} alignItems="start">
+              <Box display="flex" key={key} my={0.5} alignItems="center">
                 <div
                   style={{
                     marginTop: "4px",
@@ -164,7 +161,15 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
           })}
         </CardContent>
       </CardActionArea>
-      <ButtonCustom content="Send Enquiry" wd="80%" pd="0.7rem" fill="false" />
+
+      <ButtonCustom
+        content="Send Enquiry"
+        wd="80%"
+        pdy="0.7rem"
+        mrg="2%"
+        mrgb="4%"
+        fill="false"
+      />
     </Card>
   );
 };

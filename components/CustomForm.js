@@ -15,6 +15,7 @@ import ButtonCustom from "./CustomButton";
 const CustomForm = () => {
   const theme = useTheme();
 
+  const matchesMMD = useMediaQuery("(max-width:768px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -39,7 +40,11 @@ const CustomForm = () => {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
-      width={matchesSM ? "80%" : matchesLG ? "30%" : "40%"}
+      pb={5}
+      mr="1%"
+      width={
+        matchesSM ? "100%" : matchesMMD ? "90%" : matchesLG ? "30%" : "45%"
+      }
       sx={{
         borderRadius: "10px",
         backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -47,7 +52,7 @@ const CustomForm = () => {
     >
       <Typography
         variant="subtitle1"
-        my={3}
+        my={5}
         sx={{
           color: "white",
         }}
@@ -56,12 +61,11 @@ const CustomForm = () => {
       </Typography>
       <Stack
         component="form"
-        mb={3}
         sx={{
-          width: "90%",
+          width: "80%",
           opacity: "1",
         }}
-        spacing={2}
+        spacing={3}
         noValidate
         autoComplete="off"
       >
@@ -100,10 +104,8 @@ const CustomForm = () => {
         />
         <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
+            displayEmpty
             value={data.package}
-            label="Select Package"
             placeholder="select package"
             name="package"
             inputProps={{ "aria-label": "Without label" }}
@@ -116,23 +118,19 @@ const CustomForm = () => {
             onChange={(e) => handleChange(e)}
           >
             <MenuItem value={0}>Select Package</MenuItem>
-            <MenuItem value={10}>BASIC</MenuItem>
-            <MenuItem value={20}>GOLD</MenuItem>
-            <MenuItem value={30}>PREMIUM</MenuItem>
+            <MenuItem value={10}>Low-end</MenuItem>
+            <MenuItem value={20}>Affordable</MenuItem>
+            <MenuItem value={30}>Luxury</MenuItem>
           </Select>
         </FormControl>
-        <FormControl
-          fullWidth
-          hiddenLabel
-          size={matchesLG ? "medium" : "small"}
-        >
+        <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
             value={data.month}
-            label="Select Month"
             name="month"
-            sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
+            sx={{
+              backgroundColor: "#e3f2fd",
+              borderRadius: "5px",
+            }}
             onChange={(e) => handleChange(e)}
           >
             <MenuItem value={0}>Select Month</MenuItem>
@@ -144,7 +142,7 @@ const CustomForm = () => {
         <ButtonCustom
           content="Send Enquiry"
           wd="100%"
-          pd={matchesLG ? "1rem" : "0.5rem"}
+          pdy={matchesLG ? "1rem" : "0.5rem"}
           fill="true"
         />
       </Stack>

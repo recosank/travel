@@ -6,27 +6,35 @@ const Footer = () => {
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
-  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
     <Box
-      mt={matchesMD ? (matches ? (matchesLG ? 24 : 17) : 12) : 9}
+      mt={9}
       display="flex"
       flexDirection="column"
-      justifyContent="center"
       alignItems="center"
+      justifyContent="center"
       sx={{ backgroundColor: "#1B1B1B" }}
     >
       <ButtonCustom
         content="Get Your Free Quote"
         fill="true"
-        wd={matchesMD ? (matches ? (matchesLG ? "20%" : "30%") : "50%") : "75%"}
-        pd="0.5rem"
+        wd={matchesMD ? (matches ? (matchesLG ? "20%" : "30%") : "50%") : "55%"}
+        pdy={matchesLG ? (matchesXL ? "1.5rem" : "1rem") : "0.8rem"}
+        mrg={matchesMD ? (matchesXL ? "2%" : "5%") : "8%"}
+        mrgb={matchesMD ? (matchesXL ? "5%" : "7%") : "20%"}
       />
       <Typography
-        my={2}
-        sx={{ fontSize: "0.5rem", color: "white", letterSpacing: "1px" }}
+        mb={4}
+        sx={{
+          fontSize: matchesMD ? "0.75rem" : "0.5rem",
+          color: "white",
+          letterSpacing: "1px",
+        }}
       >
         Copyright &nbsp;
         <Typography

@@ -12,7 +12,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+:root {
+  --fs_xn: 16px;
+}
+.fs_xn {
+  font-size: var(--fs_xn);
+}
 * {
   box-sizing: border-box;
 }

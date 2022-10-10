@@ -4,37 +4,46 @@ import Image from "next/future/image";
 import ButtonCustom from "./CustomButton";
 import CustomForm from "./CustomForm";
 import bIcon from "../public/bIcon.png";
+import styles from "../styles/Home.module.css";
 
 const Banner = () => {
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const matchesMMD = useMediaQuery("(max-width:768px)");
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      sx={{ position: "relative" }}
+    >
       <Image
         src={bIcon}
         layout="fill"
         style={{
           zIndex: "10",
           position: "relative",
-          objectFit: "cover ",
+          objectFit: "cover",
           width: "100%",
+          height: matchesMD ? "1000px" : "950px",
         }}
       />
       <Box
         display="flex"
-        flexDirection={matchesMD ? "row" : "column"}
-        justifyContent={matchesMD ? "space-around" : "start"}
+        flexDirection={matchesMMD ? "column" : "row"}
+        justifyContent={matchesMMD ? "start" : "space-around"}
         width={matchesXL ? "80%" : "100%"}
         alignContent="center"
         alignItems="center"
-        mt={13}
+        mt={matchesSM ? 9 : 13}
         mb={8}
+        px={4}
         sx={{
           zIndex: "20",
           position: "absolute",
@@ -44,36 +53,57 @@ const Banner = () => {
           display={matchesLG && "flex"}
           flexDirection={matchesLG && "column"}
           alignItems={matchesLG && "start"}
-          width={matchesSM ? "80%" : matchesLG ? "50%" : "40%"}
-          pl={matchesLG && "0%"}
-          sx={{ textAlign: "center" }}
+          width={matchesSM ? "100%" : matchesLG ? "50%" : "75%"}
+          sx={{ textAlign: "start", textTransform: "none" }}
         >
-          <Typography variant={matchesLG ? "h3" : "h4"} sx={{ color: "white" }}>
+          <Typography
+            sx={{
+              color: "white",
+              fontWeight: "800",
+              fontSize: matchesMD
+                ? matches
+                  ? matchesLG
+                    ? matchesXL
+                      ? "3rem"
+                      : "2.8rem"
+                    : "2.5rem"
+                  : "2.05rem"
+                : "2.1rem",
+            }}
+          >
             WELCOME TO &nbsp;
-            <Typography variant="span" sx={{ color: "#00754A" }}>
-              HIMALAYA
+            <Typography
+              variant="span"
+              sx={{ color: "#00754A", textTransform: "none" }}
+            >
+              Himalaya
             </Typography>
           </Typography>
           <Typography
-            variant={matchesLG ? "h5" : "subtitle1"}
+            variant={matchesLG ? "h5" : "h6"}
             my={1}
             sx={{ color: "white" }}
           >
-            LOWEST PRICE GUARANTEED
+            Lowest Price Guarnteed
           </Typography>
           <ButtonCustom
             content="Call Now!"
             spanContent="+91 7807021868"
             wd={
               matchesMD
-                ? matches
+                ? matchesMMD
+                  ? "70%"
+                  : matches
                   ? matchesLG
                     ? "50%"
                     : "70%"
-                  : "90%"
-                : "90%"
+                  : "60%"
+                : "70%"
             }
-            pd="0.8rem"
+            pdy="1rem"
+            pdx="0rem"
+            mrg="5%"
+            mrgb="6%"
             fill="true"
           />
         </Box>

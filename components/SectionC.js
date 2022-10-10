@@ -16,12 +16,11 @@ import { clientData } from "../utility/travelData";
 
 const SectionC = () => {
   const theme = useTheme();
-
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
-  const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
-
   const [ind, setind] = useState(0);
 
   const handleIndFwd = () => {
@@ -41,8 +40,10 @@ const SectionC = () => {
 
   return (
     <Box
+      mt={matchesSM && 5}
       mx={2}
-      my={3}
+      mb={matches ? (matchesLG ? (matchesXL ? 18 : 15) : 13) : 0}
+      px={matchesMD ? 0 : 2}
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -53,21 +54,31 @@ const SectionC = () => {
     >
       <Typography
         variant={matchesMD ? (matchesLG ? "h4" : "h5") : "h6"}
-        my={matchesMD ? (matchesLG ? 12 : 9) : 5}
-        mt={matchesMD ? 9 : 7}
-        sx={{ fontWeight: "800" }}
+        mb={matchesMD ? (matchesLG ? 12 : 9) : 5}
+        sx={{
+          fontWeight: "800",
+          fontSize: matchesSM
+            ? "1.9rem"
+            : matchesLG
+            ? matchesXL
+              ? "4rem"
+              : "3rem"
+            : "2.4rem",
+        }}
       >
         What Our Clients Says
       </Typography>
 
       <Card
         sx={{
-          width: matchesMD ? (matchesXL ? "60%" : "80%") : "100%",
-          boxShadow: "15px 10px 25px -25px black",
-          borderRadius: "15px",
+          position: "relative",
           "&:hover": {
-            backgroundColor: "#fafafa",
+            backgroundColor: "lightgrey",
           },
+          width: matchesMD ? (matchesXL ? "60%" : "90%") : "100%",
+          boxShadow: "15px 10px 25px -25px black",
+          overflow: "visible",
+          borderRadius: "15px",
         }}
       >
         <ArrowBackIosIcon
@@ -80,36 +91,28 @@ const SectionC = () => {
             paddingRight: "4px",
             backgroundColor: "white",
             color: "black",
-            boxShadow: "0px 2px 25px -10px black",
+            boxShadow: "0px 2px 25px -14px black",
             position: "absolute",
             zIndex: "90",
-            marginTop: "8.3rem",
-            marginLeft: "-1rem",
+            top: "45%",
+            left: matches ? "-2%" : "-4%",
             borderRadius: "100px",
           }}
           onClick={handleIndBwd}
         />
         <ArrowForwardIosIcon
           sx={{
-            height: "2.4rem",
-            width: "2.4rem",
+            height: "2.5rem",
+            width: "2.5rem",
             padding: "9px",
             paddingRight: "4px",
             backgroundColor: "white",
             color: "black",
-            boxShadow: "0px 2px 25px -10px black",
+            boxShadow: "0px 2px 25px -14px black",
             position: "absolute",
             zIndex: "90",
-            marginTop: "8rem",
-            marginLeft: matchesMD
-              ? matches
-                ? matchesLG
-                  ? matchesXL
-                    ? "58%"
-                    : "76%"
-                  : "75%"
-                : "73%"
-              : "82%",
+            top: "45%",
+            right: matchesXL ? "-1.4%" : "-2.5%",
             borderRadius: "100px",
           }}
           onClick={handleIndFwd}
@@ -117,9 +120,13 @@ const SectionC = () => {
 
         <CardActionArea
           sx={{
-            width: matchesMD ? "70%" : "100%",
+            width: matchesMD ? "85%" : "100%",
             zIndex: "40",
             margin: "auto",
+
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
           }}
         >
           <Box
@@ -148,6 +155,9 @@ const SectionC = () => {
                 padding: "0.4rem 0.9rem",
                 backgroundColor: "white",
                 color: "black",
+                "&:hover": {
+                  backgroundColor: "lightgrey",
+                },
               }}
             >
               {clientData[ind].name}
@@ -160,7 +170,7 @@ const SectionC = () => {
             }}
           >
             <Typography
-              variant={matches ? "subtitle1" : "body2"}
+              variant={matches ? "h6" : "body2"}
               sx={{ textAlign: "center" }}
               color="text.secondary"
             >

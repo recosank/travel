@@ -11,17 +11,15 @@ import Image from "next/future/image";
 
 const TravelCard = ({ img, title, content }) => {
   const theme = useTheme();
-
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
     <Card
       sx={{
-        "&:hover": {
-          boxShadow: "0px 2px 55px -10px blue",
-        },
         width: "100%",
         height: "10rem",
         textAlign: "center",
@@ -30,7 +28,14 @@ const TravelCard = ({ img, title, content }) => {
         borderRadius: "6px",
       }}
     >
-      <CardActionArea>
+      <CardActionArea
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Image
           src={img}
           style={{
@@ -39,7 +44,17 @@ const TravelCard = ({ img, title, content }) => {
             marginTop: matchesXL ? "6%" : "10%",
           }}
         />
-        <CardContent>
+        <CardContent
+          sx={{
+            width: matchesSM
+              ? "100%"
+              : matches
+              ? matchesLG
+                ? "70%"
+                : "90%"
+              : "70%",
+          }}
+        >
           <Typography
             gutterBottom
             variant={matchesMD ? (matchesXL ? "subtitle2" : "caption") : ""}

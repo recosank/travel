@@ -8,22 +8,33 @@ const SectionB = () => {
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
-  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
     <Box
-      mx={2}
+      mt={3}
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
     >
       <Typography
-        variant={matchesMD ? (matchesLG ? "h4" : "h5") : "h6"}
         my={matchesMD ? (matchesLG ? 12 : 9) : 5}
         mt={matchesMD ? (matchesLG ? 15 : 11) : 7}
-        sx={{ fontWeight: "800" }}
+        mx={3}
+        sx={{
+          fontWeight: "800",
+          fontSize: matchesSM
+            ? "1.9rem"
+            : matchesLG
+            ? matchesXL
+              ? "4rem"
+              : "3rem"
+            : "2.4rem",
+        }}
       >
         Best Selling Tour Packages
       </Typography>
@@ -51,11 +62,15 @@ const SectionB = () => {
           );
         })}
       </Grid>
+
       <ButtonCustom
-        content="Explore All Package"
+        content="Enquire more"
         fill="true"
         wd={matchesMD ? (matches ? (matchesLG ? "20%" : "30%") : "50%") : "80%"}
-        pd="0.9rem"
+        pdy="0.9rem"
+        pdx="1rem"
+        mrg="9%"
+        mrgb="9%"
       />
     </Box>
   );

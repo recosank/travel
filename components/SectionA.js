@@ -6,22 +6,33 @@ import { travelData } from "../utility/travelData";
 const SectionA = () => {
   const theme = useTheme();
 
-  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
     <Box
-      mx={2}
+      mx={3}
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
     >
       <Typography
-        variant={matchesMD ? (matchesLG ? "h4" : "h5") : "h6"}
         my={matchesMD ? (matchesLG ? 12 : 9) : 5}
         mt={matchesMD ? (matchesLG ? 15 : 11) : 7}
-        sx={{ fontWeight: "800" }}
+        sx={{
+          fontWeight: "800",
+          fontSize: matchesSM
+            ? "2rem"
+            : matchesLG
+            ? matchesXL
+              ? "4rem"
+              : "3rem"
+            : "2.7rem",
+        }}
       >
         Why The Smart Traveller
       </Typography>
