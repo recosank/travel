@@ -80,17 +80,7 @@ const CustomForm = () => {
           variant="filled"
           onChange={(e) => handleChange(e)}
         />
-        <TextField
-          hiddenLabel
-          size={matchesLG ? "medium" : "small"}
-          id="filled-hidden-label-small"
-          placeholder="Email"
-          name="email"
-          value={data.email}
-          sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
-          variant="filled"
-          onChange={(e) => handleChange(e)}
-        />
+
         <TextField
           hiddenLabel
           size={matchesLG ? "medium" : "small"}
@@ -123,22 +113,7 @@ const CustomForm = () => {
             <MenuItem value={30}>Luxury</MenuItem>
           </Select>
         </FormControl>
-        <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
-          <Select
-            value={data.month}
-            name="month"
-            sx={{
-              backgroundColor: "#e3f2fd",
-              borderRadius: "5px",
-            }}
-            onChange={(e) => handleChange(e)}
-          >
-            <MenuItem value={0}>Select Month</MenuItem>
-            <MenuItem value="January">January</MenuItem>
-            <MenuItem value="February">February</MenuItem>
-            <MenuItem value="March">March</MenuItem>
-          </Select>
-        </FormControl>
+
         <ButtonCustom
           content="Send Enquiry"
           wd="100%"
