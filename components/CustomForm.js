@@ -54,7 +54,17 @@ const CustomForm = () => {
         variant="subtitle1"
         my={5}
         sx={{
+          position: "relative",
           color: "white",
+          "&:after": {
+            content: '""',
+            position: "absolute",
+            bottom: "0",
+            left: "6%",
+            width: "90%",
+            height: "1px",
+            backgroundColor: "white",
+          },
         }}
       >
         GET FREE QUOTE
