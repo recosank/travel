@@ -23,25 +23,27 @@ const Banner = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      sx={{
-        position: "relative",
-        WebkitPaddingEnd: "0px",
-        WebkitPaddingStart: "0px",
-        //minHeight: "99vh",
-        backgroundImage: `url('/public/bIcon.png')`,
-        border: "2px solid red",
-      }}
+      className={styles.bannerBG}
+      //sx={{
+      //  position: "relative",
+      //  WebkitPaddingEnd: "0px",
+      //  WebkitPaddingStart: "0px",
+      //  //minHeight: "99vh",
+      //  backgroundImage: `url('/public/bIcon.png')`,
+      //}}
     >
-      <Image
-        src={bIcon}
-        layout="fill"
-        style={{
-          zIndex: "10",
-          position: "relative",
-          objectFit: "cover",
-          width: "100%",
-        }}
-      />
+      {
+        //<Image
+        //  src={bIcon}
+        //  layout="fill"
+        //  style={{
+        //    zIndex: "10",
+        //    position: "relative",
+        //    objectFit: "cover",
+        //    width: "100%",
+        //  }}
+        ///>
+      }
       <Box
         display="flex"
         flexDirection={matchesMMD ? "column" : "row"}
@@ -50,19 +52,22 @@ const Banner = () => {
         alignContent="center"
         alignItems="center"
         mt={matchesSM ? 9 : 13}
+        //pt={matchesSM ? 9 : 13}
         mb={8}
         px={4}
+        //pl={matchesSM ? 4 : 0}
+        //px={matchesMD ? 4 : 0}
         sx={{
           border: "2px solid red",
           zIndex: "20",
-          position: "absolute",
+          //position: "absolute",
         }}
       >
         <Box
           display={matchesLG && "flex"}
           flexDirection={matchesLG && "column"}
           alignItems={matchesLG && "start"}
-          width={matchesSM ? "100%" : matchesLG ? "50%" : "75%"}
+          width={matchesSM ? "100%" : matchesLG ? "50%" : "90%"}
           sx={{
             textAlign: "start",
             textTransform: "none",
