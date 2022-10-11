@@ -40,7 +40,7 @@ const ButtonCustom = ({
         lineHeight: "0.2rem",
       }}
     >
-      <Typography variant="subtitle1" sx={{ fontWeight: "600" }}>
+      <Typography variant="subtitle1" sx={{ fontWeight: "400" }}>
         {content}{" "}
       </Typography>
       &nbsp; &nbsp; &nbsp;
