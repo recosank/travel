@@ -25,9 +25,11 @@ const Banner = () => {
       alignItems="center"
       sx={{
         position: "relative",
+        WebkitPaddingEnd: "0px",
+        WebkitPaddingStart: "0px",
         //minHeight: "99vh",
         backgroundImage: `url('/public/bIcon.png')`,
-        //border: "2px solid red",
+        border: "2px solid red",
       }}
     >
       <Image
