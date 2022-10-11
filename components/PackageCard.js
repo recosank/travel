@@ -63,7 +63,9 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
             color: "#00754A",
             fontSize: matchesXL ? "0.8rem" : "0.6rem",
             bottom: "18%",
-
+            "&:hover": {
+              backgroundColor: "white",
+            },
             marginLeft: matchesMD ? "-8rem" : "-7rem",
           }}
         >
