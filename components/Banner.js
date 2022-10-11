@@ -72,7 +72,6 @@ const Banner = () => {
           sx={{
             textAlign: "start",
             textTransform: "none",
-            border: "1px solid red",
           }}
         >
           <Typography

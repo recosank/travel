@@ -68,7 +68,7 @@ const SectionC = () => {
                   : "2.7rem"
                 : "2.4rem"
               : "1.9rem"
-            : "1.55rem",
+            : "1.3rem",
         }}
       >
         What Our Clients Says
