@@ -7,9 +7,10 @@ const Footer = () => {
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
+  const matchesXSS = useMediaQuery("(max-width:450px)");
 
   return (
     <Box
@@ -23,7 +24,17 @@ const Footer = () => {
       <ButtonCustom
         content="Get Your Free Quote"
         fill="true"
-        wd={matchesMD ? (matches ? (matchesLG ? "20%" : "30%") : "50%") : "55%"}
+        wd={
+          matchesXSS
+            ? "60%"
+            : matchesMD
+            ? matches
+              ? matchesLG
+                ? "20%"
+                : "30%"
+              : "50%"
+            : "55%"
+        }
         pdy={matchesLG ? (matchesXL ? "1.5rem" : "1rem") : "0.8rem"}
         mrg={matchesMD ? (matchesXL ? "2%" : "5%") : "8%"}
         mrgb={matchesMD ? (matchesXL ? "5%" : "7%") : "20%"}

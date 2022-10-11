@@ -10,7 +10,9 @@ const ButtonCustom = ({
   pdx,
   mrg,
   mrgb,
+  row,
   click,
+  borderR,
 }) => {
   return (
     <Button
@@ -20,17 +22,22 @@ const ButtonCustom = ({
         click == "true" && <a href="#topex"> .</a>;
       }}
       sx={{
+        flexDirection: row == "true" ? "row" : "column",
         "&:hover": {
           backgroundColor: "rgba(0, 0, 0, 0.51)",
         },
+        textAlign: "center",
         color: fill == "true" ? "white" : "#00754A",
         backgroundColor: fill == "true" && "#00754A",
-        borderRadius: "50px",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: borderR ? borderR : "50px",
         width: `${wd}`,
         padding: `${pdy} ${pdx}`,
         marginTop: `${mrg}`,
         marginBottom: `${mrgb}`,
         textTransform: "none",
+        lineHeight: "0.2rem",
       }}
     >
       <Typography variant="subtitle1" sx={{ fontWeight: "600" }}>

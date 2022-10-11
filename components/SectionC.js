@@ -19,6 +19,7 @@ const SectionC = () => {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXSS = useMediaQuery("(min-width:450px)");
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
   const [ind, setind] = useState(0);
@@ -57,13 +58,17 @@ const SectionC = () => {
         mb={matchesMD ? (matchesLG ? 12 : 9) : 5}
         sx={{
           fontWeight: "800",
-          fontSize: matchesSM
-            ? "1.9rem"
-            : matchesLG
-            ? matchesXL
-              ? "4rem"
-              : "3rem"
-            : "2.4rem",
+          fontSize: matchesXSS
+            ? matchesMD
+              ? matchesLG
+                ? matchesLG
+                  ? matchesXL
+                    ? "4rem"
+                    : "3rem"
+                  : "2.7rem"
+                : "2.4rem"
+              : "1.9rem"
+            : "1.55rem",
         }}
       >
         What Our Clients Says

@@ -8,7 +8,8 @@ const SectionA = () => {
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  //const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXSS = useMediaQuery("(min-width:450px)");
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
@@ -25,13 +26,17 @@ const SectionA = () => {
         mt={matchesMD ? (matchesLG ? 15 : 11) : 7}
         sx={{
           fontWeight: "800",
-          fontSize: matchesSM
-            ? "2rem"
-            : matchesLG
-            ? matchesXL
-              ? "4rem"
-              : "3rem"
-            : "2.7rem",
+          fontSize: matchesXSS
+            ? matchesMD
+              ? matchesLG
+                ? matchesLG
+                  ? matchesXL
+                    ? "4rem"
+                    : "3rem"
+                  : "2.7rem"
+                : "2.4rem"
+              : "2rem"
+            : "1.3rem",
         }}
       >
         Why The Smart Traveller

@@ -12,10 +12,11 @@ const Banner = () => {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMMD = useMediaQuery("(max-width:768px)");
+  const matchesXSS = useMediaQuery("(min-width:450px)");
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
-
+  // height: matchesMD ? "1000px" : "950px",
   return (
     <Box
       display="flex"
@@ -31,7 +32,6 @@ const Banner = () => {
           position: "relative",
           objectFit: "cover",
           width: "100%",
-          height: matchesMD ? "1000px" : "950px",
         }}
       />
       <Box
@@ -60,15 +60,17 @@ const Banner = () => {
             sx={{
               color: "white",
               fontWeight: "800",
-              fontSize: matchesMD
-                ? matches
-                  ? matchesLG
-                    ? matchesXL
-                      ? "3rem"
-                      : "2.8rem"
-                    : "2.5rem"
-                  : "2.05rem"
-                : "2.1rem",
+              fontSize: matchesXSS
+                ? matchesMD
+                  ? matches
+                    ? matchesLG
+                      ? matchesXL
+                        ? "3rem"
+                        : "2.8rem"
+                      : "2.5rem"
+                    : "2.1rem"
+                  : "2.1rem"
+                : "6.6vw",
             }}
           >
             WELCOME TO &nbsp;
@@ -79,16 +81,21 @@ const Banner = () => {
               Himalaya
             </Typography>
           </Typography>
+          {
+            //matchesLG ? "h5" : "h6"
+          }
           <Typography
-            variant={matchesLG ? "h5" : "h6"}
+            variant={matchesXSS ? (matchesLG ? "h5" : "h6") : "subtitle1"}
             my={1}
             sx={{ color: "white" }}
           >
             Lowest Price Guarnteed
           </Typography>
           <ButtonCustom
+            row={matchesSM ? "false" : "true"}
             content="Call Now!"
             spanContent="+91 7807021868"
+            borderR={matchesMD ? "50px" : "9px"}
             wd={
               matchesMD
                 ? matchesMMD
@@ -98,10 +105,10 @@ const Banner = () => {
                     ? "50%"
                     : "70%"
                   : "60%"
-                : "70%"
+                : "55%"
             }
-            pdy="1rem"
-            pdx="0rem"
+            pdy={matchesSM ? "0.6rem" : "1rem"}
+            pdx={matchesSM ? "0" : "0"}
             mrg="5%"
             mrgb="6%"
             fill="true"
