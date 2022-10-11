@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const lightTheme = createTheme({
   palette: {
@@ -9,6 +9,9 @@ const lightTheme = createTheme({
     "&:hover": {
       background: "white",
     },
+  },
+  typography: {
+    fontFamily: `'Poppins', sans-serif`,
   },
 });
 

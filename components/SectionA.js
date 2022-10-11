@@ -26,6 +26,7 @@ const SectionA = () => {
         mt={matchesMD ? (matchesLG ? 15 : 11) : 7}
         sx={{
           fontWeight: "800",
+          fontFamily: "Poppins",
           fontSize: matchesXSS
             ? matchesMD
               ? matchesLG

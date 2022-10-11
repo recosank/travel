@@ -175,8 +175,9 @@ const SectionC = () => {
             }}
           >
             <Typography
+              px={matchesSM ? 2 : 0}
               variant={matches ? "h6" : "body2"}
-              sx={{ textAlign: "center" }}
+              sx={{ textAlign: "center", fontWeight: "200" }}
               color="text.secondary"
             >
               {clientData[ind].content}

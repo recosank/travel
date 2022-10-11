@@ -17,12 +17,18 @@ const Banner = () => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
   // height: matchesMD ? "1000px" : "950px",
+  console.log(bIcon);
   return (
     <Box
       display="flex"
       justifyContent="center"
       alignItems="center"
-      sx={{ position: "relative" }}
+      sx={{
+        position: "relative",
+        //minHeight: "99vh",
+        backgroundImage: `url('/public/bIcon.png')`,
+        //border: "2px solid red",
+      }}
     >
       <Image
         src={bIcon}
@@ -45,6 +51,7 @@ const Banner = () => {
         mb={8}
         px={4}
         sx={{
+          //border: "2px solid red",
           zIndex: "20",
           position: "absolute",
         }}
