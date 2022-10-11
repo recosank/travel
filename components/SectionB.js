@@ -73,7 +73,7 @@ const SectionB = () => {
         content="Enquire more"
         click="true"
         fill="true"
-        wd={matchesMD ? (matches ? (matchesLG ? "20%" : "30%") : "50%") : "80%"}
+        wd={matchesMD ? (matches ? (matchesLG ? "15%" : "25%") : "35%") : "50%"}
         pdy="0.9rem"
         pdx="1rem"
         mrg="9%"

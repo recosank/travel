@@ -12,7 +12,7 @@ const Banner = () => {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMMD = useMediaQuery("(max-width:768px)");
-  const matchesXSS = useMediaQuery("(min-width:450px)");
+  const matchesXSS = useMediaQuery("(min-width:470px)");
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
@@ -77,7 +77,7 @@ const Banner = () => {
                       : "2.5rem"
                     : "2.1rem"
                   : "2.1rem"
-                : "6.6vw",
+                : "6.5vw",
             }}
           >
             WELCOME TO &nbsp;
@@ -106,11 +106,11 @@ const Banner = () => {
             wd={
               matchesMD
                 ? matchesMMD
-                  ? "70%"
+                  ? "62%"
                   : matches
                   ? matchesLG
                     ? "50%"
-                    : "70%"
+                    : "45%"
                   : "60%"
                 : "55%"
             }

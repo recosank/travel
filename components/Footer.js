@@ -1,14 +1,19 @@
 import React from "react";
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import ButtonCustom from "./CustomButton";
+import {
+  Box,
+  Typography,
+  useTheme,
+  useMediaQuery,
+  Button,
+} from "@mui/material";
 
 const Footer = () => {
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
-
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
   const matchesXSS = useMediaQuery("(max-width:450px)");
 
@@ -21,28 +26,46 @@ const Footer = () => {
       justifyContent="center"
       sx={{ backgroundColor: "#1B1B1B" }}
     >
-      <ButtonCustom
-        content="Get Your Free Quote"
-        fill="true"
-        wd={
-          matchesXSS
-            ? "60%"
+      <Button
+        variant="outlined"
+        sx={{
+          "&:hover": {
+            backgroundColor: "rgba(0, 0, 0, 0.51)",
+          },
+          textAlign: "center",
+          color: "white",
+          backgroundColor: "#00754A",
+          borderRadius: "50px",
+          textTransform: "none",
+          lineHeight: "0.2rem",
+          padding: matchesLG ? (matchesXL ? "1.5rem" : "1rem") : "0.8rem",
+          marginTop: matchesMD ? (matchesXL ? "2%" : "5%") : "8%",
+          marginBottom: matchesMD ? (matchesXL ? "5%" : "7%") : "12%",
+          width: matchesXSS
+            ? "48%"
+            : matchesSM
+            ? "40%"
             : matchesMD
             ? matches
               ? matchesLG
-                ? "20%"
-                : "30%"
-              : "50%"
-            : "55%"
-        }
-        pdy={matchesLG ? (matchesXL ? "1.5rem" : "1rem") : "0.8rem"}
-        mrg={matchesMD ? (matchesXL ? "2%" : "5%") : "8%"}
-        mrgb={matchesMD ? (matchesXL ? "5%" : "7%") : "20%"}
-      />
+                ? "15%"
+                : "20%"
+              : "30%"
+            : "55%",
+        }}
+      >
+        <Typography
+          variant="subtitle2"
+          sx={{ fontSize: matchesMD ? "0.9rem" : "0.78rem" }}
+        >
+          Get Your Free Quote
+        </Typography>
+      </Button>
+
       <Typography
         mb={4}
         sx={{
-          fontSize: matchesMD ? "0.75rem" : "0.5rem",
+          fontSize: matchesMD ? "0.6rem" : "0.5rem",
           color: "white",
           letterSpacing: "1px",
         }}
