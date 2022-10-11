@@ -53,7 +53,7 @@ const Banner = () => {
         mb={8}
         px={4}
         sx={{
-          //border: "2px solid red",
+          border: "2px solid red",
           zIndex: "20",
           position: "absolute",
         }}
@@ -63,7 +63,11 @@ const Banner = () => {
           flexDirection={matchesLG && "column"}
           alignItems={matchesLG && "start"}
           width={matchesSM ? "100%" : matchesLG ? "50%" : "75%"}
-          sx={{ textAlign: "start", textTransform: "none" }}
+          sx={{
+            textAlign: "start",
+            textTransform: "none",
+            border: "1px solid red",
+          }}
         >
           <Typography
             sx={{
