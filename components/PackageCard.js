@@ -139,10 +139,10 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
           </Typography>
           {quality.map((data, key) => {
             return (
-              <Box display="flex" key={key} my={0.5} alignItems="center">
+              <Box display="flex" key={key} my={0.5} alignItems="start">
                 <div
                   style={{
-                    marginTop: "4px",
+                    marginTop: matchesMD ? (matchesLG ? "10px" : "6px") : "3px",
                     width: "6px",
                     height: "6px",
                     borderRadius: "50px",

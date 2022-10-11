@@ -113,20 +113,34 @@ const Banner = () => {
             row={matchesSM ? "false" : "true"}
             content="Call Now!"
             spanContent="+91 7807021868"
-            borderR={matchesMD ? "50px" : "9px"}
-            wd={
-              matchesXSS
-                ? matchesMD
-                  ? matchesMMD
-                    ? "58%"
-                    : matches
-                    ? "50%"
-                    : "58%"
-                  : "40%"
-                : "55%"
-            }
+            //wd={
+            //  matchesXSS
+            //    ? matchesMD
+            //      ? matchesMMD
+            //        ? "58%"
+            //        : matches
+            //        ? "50%"
+            //        : "58%"
+            //      : "60%"
+            //    : "83%"
+            //}
             pdy={matchesSM ? "0.6rem" : "1rem"}
-            pdx={matchesSM ? "0" : "0"}
+            //pdx={matchesSM ? "6rem" : "5rem"}
+            pdx={
+              matchesSM
+                ? matchesXSS
+                  ? matchesMD
+                    ? "2rem"
+                    : "1.8rem"
+                  : "1rem"
+                : matches
+                ? matchesLG
+                  ? matchesXL
+                    ? "4rem"
+                    : "3.7rem"
+                  : "3rem"
+                : "2rem"
+            }
             mrg="5%"
             mrgb="6%"
             fill="true"

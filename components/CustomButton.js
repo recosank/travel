@@ -22,7 +22,6 @@ const ButtonCustom = ({
         click == "true" && <a href="#topex"> .</a>;
       }}
       sx={{
-        flexDirection: row == "true" ? "row" : "column",
         "&:hover": {
           backgroundColor: "rgba(0, 0, 0, 0.51)",
         },

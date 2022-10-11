@@ -39,18 +39,18 @@ const Footer = () => {
           textTransform: "none",
           lineHeight: "0.2rem",
           padding: matchesLG ? (matchesXL ? "1.5rem" : "1rem") : "0.8rem",
-          marginTop: matchesMD ? (matchesXL ? "2%" : "5%") : "8%",
+          marginTop: matchesMD ? (matchesXL ? "5.9%" : "7.9%") : "12.5%",
           marginBottom: matchesMD ? (matchesXL ? "5%" : "7%") : "12%",
           width: matchesXSS
-            ? "48%"
+            ? "60%"
             : matchesSM
-            ? "40%"
+            ? "45%"
             : matchesMD
             ? matches
               ? matchesLG
-                ? "15%"
-                : "20%"
-              : "30%"
+                ? "20%"
+                : "28%"
+              : "40%"
             : "55%",
         }}
       >
