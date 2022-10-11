@@ -54,7 +54,7 @@ const Banner = () => {
         mt={matchesSM ? 9 : 13}
         //pt={matchesSM ? 9 : 13}
         mb={8}
-        px={4}
+        px={matchesMD ? (matchesMMD ? 9 : 4) : 0}
         //pl={matchesSM ? 4 : 0}
         //px={matchesMD ? 4 : 0}
         sx={{
@@ -68,11 +68,11 @@ const Banner = () => {
           flexDirection={matchesLG && "column"}
           alignItems={matchesLG && "start"}
           width={matchesSM ? "100%" : matchesLG ? "50%" : "90%"}
-          mr={matchesSM ? -2 : 0}
+          pl={matchesSM ? 3 : 0}
           sx={{
             textAlign: "start",
             textTransform: "none",
-            //border: "1px solid red",
+            border: "1px solid red",
           }}
         >
           <Typography
@@ -116,14 +116,14 @@ const Banner = () => {
             spanContent="+91 7807021868"
             borderR={matchesMD ? "50px" : "9px"}
             wd={
-              matchesMD
-                ? matchesMMD
-                  ? "62%"
-                  : matches
-                  ? matchesLG
+              matchesXSS
+                ? matchesMD
+                  ? matchesMMD
+                    ? "58%"
+                    : matches
                     ? "50%"
-                    : "45%"
-                  : "60%"
+                    : "58%"
+                  : "40%"
                 : "55%"
             }
             pdy={matchesSM ? "0.6rem" : "1rem"}

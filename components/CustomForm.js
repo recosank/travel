@@ -14,7 +14,7 @@ import ButtonCustom from "./CustomButton";
 
 const CustomForm = () => {
   const theme = useTheme();
-
+  const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesMMD = useMediaQuery("(max-width:768px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
@@ -42,9 +42,9 @@ const CustomForm = () => {
       alignItems="center"
       pb={5}
       mr="1%"
-      width={
-        matchesSM ? "100%" : matchesMMD ? "90%" : matchesLG ? "30%" : "45%"
-      }
+      //mx={3}
+      px={matchesMD && matchesMMD && 4}
+      width={matchesSM ? "90%" : matchesMMD ? "90%" : matchesLG ? "30%" : "45%"}
       sx={{
         borderRadius: "10px",
         backgroundColor: "rgba(0, 0, 0, 0.6)",
