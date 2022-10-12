@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import PackageCard from "./PackageCard";
-import ButtonCustom from "./CustomButton";
-import { packageData } from "../utility/travelData";
 import {
   Typography,
   Box,
@@ -13,6 +10,10 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import Image from "next/future/image";
+import PackageCard from "./PackageCard";
+import ButtonCustom from "./CustomButton";
+import { packageData } from "../utility/travelData";
+
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -90,7 +91,7 @@ const SectionB = () => {
         >
           {packageData.map((data, key) => {
             return (
-              <Grid item xs={12} md={6} key={key}>
+              <Grid item md={6} key={key}>
                 <PackageCard
                   img={data.img}
                   name={data.name}
@@ -151,7 +152,7 @@ const SectionB = () => {
             }}
             onClick={handleIndFwd}
           />
-          <CardActionArea
+          <Box
             sx={{
               width: "85%",
               zIndex: "40",
@@ -182,7 +183,7 @@ const SectionB = () => {
                 quality={packageData[ind].quality}
               />
             </Box>
-          </CardActionArea>
+          </Box>
         </Box>
       )}
 
