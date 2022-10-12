@@ -120,15 +120,11 @@ const SectionC = () => {
           onClick={handleIndFwd}
         />
 
-        <CardActionArea
+        <Box
           sx={{
             width: matchesMD ? "85%" : "100%",
             zIndex: "40",
             margin: "auto",
-
-            "&:hover": {
-              backgroundColor: "transparent",
-            },
           }}
         >
           <Box
@@ -183,7 +179,7 @@ const SectionC = () => {
               )}
             </Typography>
           </CardContent>
-        </CardActionArea>
+        </Box>
       </Card>
     </Box>
   );
