@@ -19,6 +19,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
+  const matchesXSS = useMediaQuery("(max-width:470px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
@@ -38,7 +39,15 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
         p={2}
         sx={{
           position: "relative",
-          height: matchesMD ? (matchesXL ? "23rem" : "18rem") : "15rem",
+          height: matchesXSS
+            ? "10rem"
+            : matchesSM
+            ? "15rem"
+            : matchesMD
+            ? matchesXL
+              ? "23rem"
+              : "18rem"
+            : "15rem",
         }}
       >
         <Image
@@ -61,12 +70,12 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
             padding: "0.4rem 0.9rem",
             backgroundColor: "white",
             color: "#00754A",
-            fontSize: matchesXL ? "0.8rem" : "0.6rem",
+            fontSize: matchesMD ? (matchesXL ? "0.8rem" : "0.6rem") : "0.4rem",
             bottom: "18%",
             "&:hover": {
               backgroundColor: "white",
             },
-            marginLeft: matchesMD ? "-8rem" : "-7rem",
+            marginLeft: matchesMD ? "-8rem" : "-6rem",
           }}
         >
           Rs. {price}
@@ -169,7 +178,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
       <ButtonCustom
         content="Send Enquiry"
         wd="80%"
-        pdy="0.7rem"
+        pdy={matchesSM ? "0rem" : "0.7rem"}
         mrg="2%"
         mrgb="4%"
         fill="false"
