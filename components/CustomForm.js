@@ -36,7 +36,8 @@ const CustomForm = () => {
     localStorage.setItem("packageQuery", JSON.stringify(data));
     axios
       .post("https://formbold.com/s/3dOx9", data)
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   return (
