@@ -21,9 +21,12 @@ const ButtonCustom = ({
       href={click == "true" && "#topex"}
       onClick={() => onSub && onSub()}
       sx={{
-        "&:active": {
-          backgroundColor: "rgba(0, 0, 0, 0.51)",
+        "&:hover": {
+          backgroundColor: "#00754A",
         },
+        //"&:active": {
+        //  backgroundColor: "rgba(0, 0, 0, 0.51)",
+        //},
         textAlign: "center",
         color: fill == "true" ? "white" : "#00754A",
         backgroundColor: fill == "true" && "#00754A",

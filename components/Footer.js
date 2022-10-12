@@ -28,9 +28,10 @@ const Footer = () => {
     >
       <Button
         variant="outlined"
+        id="taptap"
         sx={{
           "&:hover": {
-            backgroundColor: "rgba(0, 0, 0, 0.51)",
+            backgroundColor: "#00754A",
           },
           textAlign: "center",
           color: "white",
