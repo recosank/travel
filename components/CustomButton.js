@@ -13,14 +13,13 @@ const ButtonCustom = ({
   row,
   click,
   borderR,
+  onSub,
 }) => {
   return (
     <Button
       variant="outlined"
       href={click == "true" && "#topex"}
-      onClick={() => {
-        click == "true" && <a href="#topex"> .</a>;
-      }}
+      onClick={() => onSub()}
       sx={{
         "&:hover": {
           backgroundColor: "rgba(0, 0, 0, 0.51)",

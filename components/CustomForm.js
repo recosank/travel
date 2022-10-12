@@ -11,6 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import ButtonCustom from "./CustomButton";
+import axios from "axios";
 
 const CustomForm = () => {
   const theme = useTheme();
@@ -21,10 +22,8 @@ const CustomForm = () => {
 
   let init = {
     name: "",
-    email: "",
     phone: "",
-    package: 0,
-    month: 0,
+    packege: "Select Packege",
   };
   const [data, setdata] = useState(init);
 
@@ -32,6 +31,12 @@ const CustomForm = () => {
     e.preventDefault();
     setdata({ ...data, [e.target.name]: e.target.value });
     console.log(data);
+  };
+  const handleQuery = () => {
+    localStorage.setItem("packageQuery", JSON.stringify(data));
+    axios
+      .post("https://formbold.com/s/3dOx9", data)
+      .then((res) => console.log(res));
   };
 
   return (
@@ -105,9 +110,9 @@ const CustomForm = () => {
         <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
             displayEmpty
-            value={data.package}
-            placeholder="select package"
-            name="package"
+            value={data.packege}
+            placeholder="select packege"
+            name="packege"
             inputProps={{ "aria-label": "Without label" }}
             sx={{
               backgroundColor: "#e3f2fd",
@@ -117,10 +122,10 @@ const CustomForm = () => {
             }}
             onChange={(e) => handleChange(e)}
           >
-            <MenuItem value={0}>Select Package</MenuItem>
-            <MenuItem value={10}>Low-end</MenuItem>
-            <MenuItem value={20}>Affordable</MenuItem>
-            <MenuItem value={30}>Luxury</MenuItem>
+            <MenuItem value="Select Packege">Select Peckage</MenuItem>
+            <MenuItem value="Low-end">Low-end</MenuItem>
+            <MenuItem value="Affordable">Affordable</MenuItem>
+            <MenuItem value="Luxury">Luxury</MenuItem>
           </Select>
         </FormControl>
 
@@ -129,6 +134,7 @@ const CustomForm = () => {
           wd="100%"
           pdy={matchesLG ? "1rem" : "0.5rem"}
           fill="true"
+          onSub={handleQuery}
         />
       </Stack>
     </Box>
