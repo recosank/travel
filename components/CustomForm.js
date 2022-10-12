@@ -38,6 +38,7 @@ const CustomForm = () => {
       .post("https://formbold.com/s/3dOx9", data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    setdata(init);
   };
 
   return (
