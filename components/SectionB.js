@@ -1,8 +1,20 @@
-import React from "react";
-import { Typography, Box, useTheme, useMediaQuery, Grid } from "@mui/material";
+import React, { useState } from "react";
 import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";
+import {
+  Typography,
+  Box,
+  CardActionArea,
+  CardContent,
+  Grid,
+  Card,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import Image from "next/future/image";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const SectionB = () => {
   const theme = useTheme();
@@ -13,6 +25,22 @@ const SectionB = () => {
   const matchesXSS = useMediaQuery("(min-width:450px)");
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
+  const [ind, setind] = useState(0);
+
+  const handleIndFwd = () => {
+    if (ind == packageData.length - 1) {
+      setind(0);
+    } else {
+      setind((p) => p + 1);
+    }
+  };
+  const handleIndBwd = () => {
+    if (ind == 0) {
+      setind(packageData.length - 1);
+    } else {
+      setind((p) => p - 1);
+    }
+  };
 
   return (
     <Box
@@ -43,30 +71,120 @@ const SectionB = () => {
       >
         Best Selling Tour Packages
       </Typography>
-      <Grid
-        container
-        justifyContent="space-between"
-        alignItems="center"
-        rowSpacing={5}
-        width={
-          matchesMD ? (matches ? (matchesLG ? "80%" : "100%") : "80%") : "100%"
-        }
-        columnSpacing={5}
-      >
-        {packageData.map((data, key) => {
-          return (
-            <Grid item xs={12} md={6} key={key}>
+      {matches ? (
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          rowSpacing={5}
+          width={
+            matchesMD
+              ? matches
+                ? matchesLG
+                  ? "80%"
+                  : "100%"
+                : "80%"
+              : "100%"
+          }
+          columnSpacing={5}
+        >
+          {packageData.map((data, key) => {
+            return (
+              <Grid item xs={12} md={6} key={key}>
+                <PackageCard
+                  img={data.img}
+                  name={data.name}
+                  price={data.price}
+                  stay={data.stay}
+                  quality={data.quality}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
+      ) : (
+        <Box
+          sx={{
+            position: "relative",
+            "&:hover": {
+              backgroundColor: "lightgrey",
+            },
+            width: "90%",
+            //boxShadow: "15px 10px 25px -25px black",
+            overflow: "visible",
+            borderRadius: "15px",
+          }}
+        >
+          <ArrowBackIosIcon
+            color="black"
+            fontSize="small"
+            sx={{
+              height: "2.4rem",
+              width: "2.4rem",
+              padding: "9px",
+              paddingRight: "4px",
+              backgroundColor: "white",
+              color: "black",
+              boxShadow: "0px 2px 25px -14px black",
+              position: "absolute",
+              zIndex: "90",
+              top: "45%",
+              left: matches ? "-2%" : "-4%",
+              borderRadius: "100px",
+            }}
+            onClick={handleIndBwd}
+          />
+          <ArrowForwardIosIcon
+            sx={{
+              height: "2.5rem",
+              width: "2.5rem",
+              padding: "9px",
+              paddingRight: "4px",
+              backgroundColor: "white",
+              color: "black",
+              boxShadow: "0px 2px 25px -14px black",
+              position: "absolute",
+              zIndex: "90",
+              top: "45%",
+              right: "-3.5%",
+              borderRadius: "100px",
+            }}
+            onClick={handleIndFwd}
+          />
+          <CardActionArea
+            sx={{
+              width: "85%",
+              zIndex: "40",
+              margin: "auto",
+
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+            }}
+          >
+            <Box
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+              alignItems="center"
+              py={5}
+              sx={{
+                textAlign: "center",
+
+                zIndex: "40",
+              }}
+            >
               <PackageCard
-                img={data.img}
-                name={data.name}
-                price={data.price}
-                stay={data.stay}
-                quality={data.quality}
+                img={packageData[ind].img}
+                name={packageData[ind].name}
+                price={packageData[ind].price}
+                stay={packageData[ind].stay}
+                quality={packageData[ind].quality}
               />
-            </Grid>
-          );
-        })}
-      </Grid>
+            </Box>
+          </CardActionArea>
+        </Box>
+      )}
 
       <ButtonCustom
         href="#topex"
