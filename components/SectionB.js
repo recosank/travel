@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Typography,
-  Box,
-  CardActionArea,
-  CardContent,
-  Grid,
-  Card,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
+import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
 import Image from "next/future/image";
 import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
@@ -107,11 +98,7 @@ const SectionB = () => {
         <Box
           sx={{
             position: "relative",
-            "&:hover": {
-              backgroundColor: "lightgrey",
-            },
             width: "90%",
-            //boxShadow: "15px 10px 25px -25px black",
             overflow: "visible",
             borderRadius: "15px",
           }}
@@ -157,10 +144,6 @@ const SectionB = () => {
               width: "85%",
               zIndex: "40",
               margin: "auto",
-
-              "&:hover": {
-                backgroundColor: "transparent",
-              },
             }}
           >
             <Box

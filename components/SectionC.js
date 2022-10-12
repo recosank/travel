@@ -77,9 +77,6 @@ const SectionC = () => {
       <Card
         sx={{
           position: "relative",
-          "&:hover": {
-            backgroundColor: "lightgrey",
-          },
           width: matchesMD ? (matchesXL ? "60%" : "90%") : "100%",
           boxShadow: "15px 10px 25px -25px black",
           overflow: "visible",
@@ -142,7 +139,6 @@ const SectionC = () => {
             pt={matches ? 3 : 5}
             sx={{
               textAlign: "center",
-              border: "0px solid yellow",
               zIndex: "40",
             }}
           >
@@ -160,9 +156,6 @@ const SectionC = () => {
                 padding: "0.4rem 0.9rem",
                 backgroundColor: "white",
                 color: "black",
-                "&:hover": {
-                  backgroundColor: "lightgrey",
-                },
               }}
             >
               {clientData[ind].name}
