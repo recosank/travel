@@ -21,14 +21,14 @@ const SectionB = () => {
 
   const handleIndFwd = () => {
     if (ind == packageData.length - 1) {
-      setind(0);
+      setind(packageData.length - 1);
     } else {
       setind((p) => p + 1);
     }
   };
   const handleIndBwd = () => {
     if (ind == 0) {
-      setind(packageData.length - 1);
+      setind(0);
     } else {
       setind((p) => p - 1);
     }
@@ -107,6 +107,7 @@ const SectionB = () => {
             color="black"
             fontSize="small"
             sx={{
+              visibility: ind == 0 && "hidden",
               height: "2.4rem",
               width: "2.4rem",
               padding: "9px",
@@ -124,6 +125,7 @@ const SectionB = () => {
           />
           <ArrowForwardIosIcon
             sx={{
+              visibility: ind == packageData.length - 1 && "hidden",
               height: "2.5rem",
               width: "2.5rem",
               padding: "9px",
@@ -175,7 +177,17 @@ const SectionB = () => {
         content="Enquire more"
         click="true"
         fill="true"
-        wd={matchesMD ? (matches ? (matchesLG ? "15%" : "25%") : "35%") : "50%"}
+        wd={
+          matchesXSS
+            ? matchesMD
+              ? matches
+                ? matchesLG
+                  ? "15%"
+                  : "25%"
+                : "35%"
+              : "50%"
+            : "60%"
+        }
         pdy="0.9rem"
         pdx="1rem"
         mrg="9%"

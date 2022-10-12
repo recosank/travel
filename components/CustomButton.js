@@ -19,9 +19,9 @@ const ButtonCustom = ({
     <Button
       variant="outlined"
       href={click == "true" && "#topex"}
-      onClick={() => onSub()}
+      onClick={() => onSub && onSub()}
       sx={{
-        "&:hover": {
+        "&:active": {
           backgroundColor: "rgba(0, 0, 0, 0.51)",
         },
         textAlign: "center",
@@ -41,9 +41,12 @@ const ButtonCustom = ({
       <Typography variant="subtitle1" sx={{ fontWeight: "400" }}>
         {content}{" "}
       </Typography>
-      &nbsp; &nbsp; &nbsp;
+
       {spanContent && (
-        <Typography variant="subtitle1">+91 7807021868</Typography>
+        <Typography variant="subtitle1">
+          {" "}
+          &nbsp; &nbsp; &nbsp;+91 7807021868
+        </Typography>
       )}
     </Button>
   );

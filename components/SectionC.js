@@ -26,14 +26,14 @@ const SectionC = () => {
 
   const handleIndFwd = () => {
     if (ind == clientData.length - 1) {
-      setind(0);
+      setind(clientData.length);
     } else {
       setind((p) => p + 1);
     }
   };
   const handleIndBwd = () => {
     if (ind == 0) {
-      setind(clientData.length - 1);
+      setind(0);
     } else {
       setind((p) => p - 1);
     }
@@ -87,6 +87,7 @@ const SectionC = () => {
           color="black"
           fontSize="small"
           sx={{
+            visibility: ind == 0 && "hidden",
             height: "2.4rem",
             width: "2.4rem",
             padding: "9px",
@@ -104,6 +105,7 @@ const SectionC = () => {
         />
         <ArrowForwardIosIcon
           sx={{
+            visibility: ind == clientData.length - 1 && "hidden",
             height: "2.5rem",
             width: "2.5rem",
             padding: "9px",

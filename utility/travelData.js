@@ -101,7 +101,7 @@ export let clientData = [
     img: boy,
     name: "Neha Gupta",
     content:
-      " This was the first time I had travelled with The Smart Traveller. The itinerary was very well thought out, combining leisure time with activity and not-to-be-missed opportunities. I would highly recommend this company to anyone wanting a fun, relaxed, enriching holiday with fine food - they will deliver! ",
+      "This was the first time I had travelled with The Smart Traveller. The itinerary was very well thought out, combining leisure time with activity and not-to-be-missed opportunities. I would highly recommend this company to anyone wanting a fun, relaxed, enriching holiday with fine food - they will deliver! ",
   },
   {
     img: jo,
