@@ -39,7 +39,7 @@ const SectionB = () => {
                   : "2.7rem"
                 : "2.4rem"
               : "1.85rem"
-            : "1.3rem",
+            : "1.28rem",
         }}
       >
         Best Selling Tour Packages
