@@ -23,7 +23,7 @@ const CustomForm = () => {
   let init = {
     name: "",
     phone: "",
-    packege: "Select Packege",
+    package: "Select Package",
   };
   const [data, setdata] = useState(init);
 
@@ -114,9 +114,9 @@ const CustomForm = () => {
         <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
             displayEmpty
-            value={data.packege}
-            placeholder="select packege"
-            name="packege"
+            value={data.package}
+            placeholder="select package"
+            name="package"
             inputProps={{ "aria-label": "Without label" }}
             sx={{
               backgroundColor: "#e3f2fd",
@@ -126,7 +126,7 @@ const CustomForm = () => {
             }}
             onChange={(e) => handleChange(e)}
           >
-            <MenuItem value="Select Packege">Select Peckege</MenuItem>
+            <MenuItem value="Select Package">Select Package</MenuItem>
             <MenuItem value="Low-end">Low-end</MenuItem>
             <MenuItem value="Affordable">Affordable</MenuItem>
             <MenuItem value="Luxury">Luxury</MenuItem>
