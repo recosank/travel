@@ -21,8 +21,9 @@ const ButtonCustom = ({
       onClick={() => onSub && onSub()}
       sx={{
         "&:hover": {
-          backgroundColor: "#00754A",
+          backgroundColor: fill == "true" ? "#00754A" : "transparent",
         },
+
         textAlign: "center",
         color: fill == "true" ? "white" : "#00754A",
         backgroundColor: fill == "true" && "#00754A",
