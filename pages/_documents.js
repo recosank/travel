@@ -5,7 +5,7 @@ import lightTheme from "../styles/Theme/lightTheme";
 import createEmotionCache from "../utility/createEmotionCache";
 
 // MUI Core
-import { ServerStyleSheets } from "@material-ui/core/styles";
+//import { ServerStyleSheets } from "@material-ui/core/styles";
 
 export default class MyDocument extends Document {
   render() {
@@ -14,7 +14,12 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={lightTheme.palette.mode} />
-
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap"
+            rel="stylesheet"
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -34,7 +39,7 @@ export default class MyDocument extends Document {
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
-  const sheets = new ServerStyleSheets();
+  //const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
   // You can consider sharing the same emotion cache between
@@ -48,8 +53,8 @@ MyDocument.getInitialProps = async (ctx) => {
     originalRenderPage({
       enhanceApp: (App) =>
         function EnhanceApp(props) {
-          return sheets.collect(<App {...props} />);
-          //return <App emotionCache={cache} {...props} />;
+          //return sheets.collect(<App {...props} />);
+          return <App emotionCache={cache} {...props} />;
         },
     });
 
@@ -72,9 +77,9 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     emotionStyleTags,
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      sheets.getStyleElement(),
-    ],
+    //styles: [
+    //  ...React.Children.toArray(initialProps.styles),
+    //  sheets.getStyleElement(),
+    //],
   };
 };

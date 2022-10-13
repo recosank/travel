@@ -18,15 +18,12 @@ const ButtonCustom = ({
   return (
     <Button
       variant="outlined"
-      href={click == "true" && "#topex"}
+      href={click == "tru" ? "#topex" : undefined}
       onClick={() => onSub && onSub()}
       sx={{
         "&:hover": {
           backgroundColor: "#00754A",
         },
-        //"&:active": {
-        //  backgroundColor: "rgba(0, 0, 0, 0.51)",
-        //},
         textAlign: "center",
         color: fill == "true" ? "white" : "#00754A",
         backgroundColor: fill == "true" && "#00754A",
@@ -44,10 +41,8 @@ const ButtonCustom = ({
       <Typography variant="subtitle1" sx={{ fontWeight: "400" }}>
         {content}{" "}
       </Typography>
-
       {spanContent && (
         <Typography variant="subtitle1">
-          {" "}
           &nbsp; &nbsp; &nbsp;+91 7807021868
         </Typography>
       )}
