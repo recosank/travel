@@ -1,9 +1,7 @@
 import React from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import Image from "next/future/image";
 import ButtonCustom from "./CustomButton";
 import CustomForm from "./CustomForm";
-import bIcon from "../public/bIcon.png";
 import styles from "../styles/Home.module.css";
 
 const Banner = () => {

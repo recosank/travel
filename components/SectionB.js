@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
-import Image from "next/future/image";
 import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const SectionB = () => {
   const theme = useTheme();

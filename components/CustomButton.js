@@ -10,7 +10,6 @@ const ButtonCustom = ({
   pdx,
   mrg,
   mrgb,
-  row,
   click,
   borderR,
   onSub,

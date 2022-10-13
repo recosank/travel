@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Typography,
   Box,
-  CardActionArea,
   CardContent,
   Card,
   useTheme,
