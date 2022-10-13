@@ -62,7 +62,9 @@ const Footer = () => {
       >
         <Typography
           variant="subtitle2"
-          sx={{ fontSize: matchesMD ? "0.9rem" : "0.78rem" }}
+          sx={{
+            fontSize: matchesMD ? (matchesXL ? "1rem" : "0.9rem") : "0.78rem",
+          }}
         >
           Get Your Free Quote
         </Typography>
@@ -80,10 +82,10 @@ const Footer = () => {
         <Typography
           variant="span"
           sx={{
-            border: "1px solid white",
+            border: "0.1px solid white",
             borderRadius: "100%",
             opacity: "0.5",
-            padding: "0.05rem",
+            padding: "0.1rem",
           }}
         >
           C

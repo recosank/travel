@@ -21,12 +21,21 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesXSS = useMediaQuery("(max-width:470px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesMMD = useMediaQuery("(max-width:768px)");
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
   return (
     <Card
       sx={{
-        width: matchesLG ? (matchesXL ? "90%" : "94%") : "100%",
+        width: matchesXSS
+          ? "97%"
+          : matchesMD
+          ? matchesMMD
+            ? "100%"
+            : matches
+            ? "90%"
+            : "90%"
+          : "95%",
         margin: "auto",
         textAlign: "center",
         backgroundColor: "#FFFFFF",
