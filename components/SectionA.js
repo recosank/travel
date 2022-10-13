@@ -8,7 +8,6 @@ const SectionA = () => {
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
-  //const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXSS = useMediaQuery("(min-width:450px)");
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));

@@ -5,10 +5,6 @@ import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import styles from "../styles/Home.module.css";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const SectionB = () => {
   const theme = useTheme();
@@ -19,21 +15,6 @@ const SectionB = () => {
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
   const [ind, setind] = useState(0);
-
-  const handleIndFwd = () => {
-    if (ind == packageData.length - 1) {
-      setind(packageData.length - 1);
-    } else {
-      setind((p) => p + 1);
-    }
-  };
-  const handleIndBwd = () => {
-    if (ind == 0) {
-      setind(0);
-    } else {
-      setind((p) => p - 1);
-    }
-  };
 
   return (
     <Box
@@ -72,9 +53,17 @@ const SectionB = () => {
         alignItems="center"
         rowSpacing={5}
         width={
-          matchesMD ? (matches ? (matchesLG ? "80%" : "100%") : "80%") : "100%"
+          matchesMD
+            ? matches
+              ? matchesLG
+                ? matchesXL
+                  ? "80%"
+                  : "90%"
+                : "100%"
+              : "80%"
+            : "100%"
         }
-        columnSpacing={5}
+        columnSpacing={matchesLG ? 8 : 5}
       >
         {packageData.map((data, key) => {
           return (
@@ -90,11 +79,10 @@ const SectionB = () => {
           );
         })}
       </Grid>
-
       <ButtonCustom
         href="#topex"
         content="Enquire more"
-        click="true"
+        click="tru"
         fill="true"
         wd={
           matchesXSS
@@ -117,27 +105,3 @@ const SectionB = () => {
 };
 
 export default SectionB;
-{
-  // <Carousel
-  //        showStatus={false}
-  //        showArrows={false}
-  //        showIndicators={true}
-  //        showThumbs={false}
-  //      >
-  //        {packageData.map((data, key) => {
-  //          return (
-  //            <Box key={key} className={styles.cardMain}>
-  //              <Box className={styles.cardSec}>
-  //                <PackageCard
-  //                  img={data.img}
-  //                  name={data.name}
-  //                  price={data.price}
-  //                  stay={data.stay}
-  //                  quality={data.quality}
-  //                />
-  //              </Box>
-  //            </Box>
-  //          );
-  //        })}
-  //      </Carousel>
-}

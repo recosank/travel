@@ -16,34 +16,14 @@ const Banner = () => {
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
-  // height: matchesMD ? "1000px" : "950px",
-  console.log(bIcon);
+
   return (
     <Box
       display="flex"
       justifyContent="center"
       alignItems="center"
       className={styles.bannerBG}
-      //sx={{
-      //  position: "relative",
-      //  WebkitPaddingEnd: "0px",
-      //  WebkitPaddingStart: "0px",
-      //  //minHeight: "99vh",
-      //  backgroundImage: `url('/public/bIcon.png')`,
-      //}}
     >
-      {
-        //<Image
-        //  src={bIcon}
-        //  layout="fill"
-        //  style={{
-        //    zIndex: "10",
-        //    position: "relative",
-        //    objectFit: "cover",
-        //    width: "100%",
-        //  }}
-        ///>
-      }
       <Box
         display="flex"
         flexDirection={matchesMMD ? "column" : "row"}
@@ -52,15 +32,10 @@ const Banner = () => {
         alignContent="center"
         alignItems="center"
         mt={matchesSM ? 9 : 13}
-        //pt={matchesSM ? 9 : 13}
         mb={8}
-        px={matchesMD ? (matchesMMD ? 9 : 4) : 0}
-        //pl={matchesSM ? 4 : 0}
-        //px={matchesMD ? 4 : 0}
+        px={matchesMD ? (matchesMMD ? 7 : matches ? 7 : 4) : 0}
         sx={{
-          //border: "2px solid red",
           zIndex: "20",
-          //position: "absolute",
         }}
       >
         <Box
@@ -104,9 +79,6 @@ const Banner = () => {
               Himalaya
             </Typography>
           </Typography>
-          {
-            //matchesLG ? "h5" : "h6"
-          }
           <Typography
             variant={matchesXSS ? (matchesLG ? "h5" : "h6") : "subtitle1"}
             my={1}
@@ -118,19 +90,7 @@ const Banner = () => {
             row={matchesSM ? "false" : "true"}
             content="Call Now!"
             spanContent="+91 7807021868"
-            //wd={
-            //  matchesXSS
-            //    ? matchesMD
-            //      ? matchesMMD
-            //        ? "58%"
-            //        : matches
-            //        ? "50%"
-            //        : "58%"
-            //      : "60%"
-            //    : "83%"
-            //}
             pdy={matchesSM ? "0.6rem" : "1rem"}
-            //pdx={matchesSM ? "6rem" : "5rem"}
             pdx={
               matchesSM
                 ? matchesXSS

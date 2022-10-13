@@ -16,6 +16,7 @@ const Footer = () => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
   const matchesXSS = useMediaQuery("(max-width:450px)");
+  const matchesMMD = useMediaQuery("(max-width:768px)");
 
   return (
     <Box
@@ -39,7 +40,7 @@ const Footer = () => {
           borderRadius: "50px",
           textTransform: "none",
           lineHeight: "0.2rem",
-          padding: matchesLG ? (matchesXL ? "1.5rem" : "1rem") : "0.8rem",
+          padding: matchesLG ? (matchesXL ? "1.2rem" : "1rem") : "0.8rem",
           marginTop: matchesMD ? (matchesXL ? "5.9%" : "7.9%") : "12.5%",
           marginBottom: matchesMD ? (matchesXL ? "5%" : "7%") : "12%",
           width: matchesXSS
@@ -47,11 +48,15 @@ const Footer = () => {
             : matchesSM
             ? "45%"
             : matchesMD
-            ? matches
+            ? matchesMMD
+              ? "40%"
+              : matches
               ? matchesLG
-                ? "20%"
-                : "28%"
-              : "40%"
+                ? matchesXL
+                  ? "20%"
+                  : "20%"
+                : "25%"
+              : "30%"
             : "55%",
         }}
       >
@@ -76,7 +81,8 @@ const Footer = () => {
           variant="span"
           sx={{
             border: "1px solid white",
-            borderRadius: "100px",
+            borderRadius: "100%",
+            opacity: "0.5",
             padding: "0.05rem",
           }}
         >

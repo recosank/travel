@@ -51,7 +51,6 @@ const CustomForm = () => {
       alignItems="center"
       pb={5}
       mr="1%"
-      //mx={3}
       px={matchesMD && matchesMMD && 4}
       width={matchesSM ? "90%" : matchesMMD ? "90%" : matchesLG ? "30%" : "55%"}
       sx={{
@@ -132,7 +131,6 @@ const CustomForm = () => {
             <MenuItem value="Luxury">Luxury</MenuItem>
           </Select>
         </FormControl>
-
         <ButtonCustom
           content="Send Enquiry"
           wd="100%"

@@ -154,6 +154,7 @@ const SectionC = () => {
           >
             <Image
               src={clientData[ind].img}
+              alt="client avatar"
               style={{
                 width: matches ? 110 : 90,
                 height: matches ? 110 : 90,
@@ -189,7 +190,7 @@ const SectionC = () => {
             >
               {read
                 ? clientData[ind].content
-                : clientData[ind].content.slice(0, 190)}
+                : clientData[ind].content.slice(0, 190) + "..."}
               <br />
               {!read ? (
                 <Button

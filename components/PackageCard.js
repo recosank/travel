@@ -14,7 +14,6 @@ import fire from "../public/fire.png";
 import ButtonCustom from "./CustomButton";
 
 const PackageCard = ({ name, price, img, stay, quality }) => {
-  console.log("name", name);
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -27,13 +26,12 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
   return (
     <Card
       sx={{
-        width: "100%",
+        width: matchesLG ? (matchesXL ? "90%" : "94%") : "100%",
         margin: "auto",
         textAlign: "center",
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 25px -10px black",
         borderRadius: "6px",
-        border: "0px solid red",
       }}
     >
       <Box
@@ -186,12 +184,10 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
         mrg="2%"
         mrgb="4%"
         fill="false"
-        click="true"
+        click="tru"
       />
     </Card>
   );
 };
 
 export default PackageCard;
-{
-}

@@ -5,7 +5,7 @@ import hIcon from "../public/hIcon.png";
 
 const Header = () => {
   const theme = useTheme();
-
+  const matchesMMD = useMediaQuery("(max-width:768px)");
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
@@ -19,9 +19,19 @@ const Header = () => {
         width="100%"
         justifyContent="start"
         alignItems="center"
-        pl={matchesLG ? 16 : 2}
+        pl={
+          matchesMMD
+            ? 2
+            : matchesMD
+            ? matchesLG
+              ? matchesXL
+                ? 16
+                : 10
+              : 3
+            : 0
+        }
       >
-        <Image src={hIcon} width={60} height={60} />
+        <Image src={hIcon} alt="smart traveller icon" width={60} height={60} />
         <Typography variant="subtitle2" px={1} sx={{ color: "#00754A" }}>
           The Smart Traveller
         </Typography>
