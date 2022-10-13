@@ -4,6 +4,9 @@ import createEmotionServer from "@emotion/server/create-instance";
 import lightTheme from "../styles/Theme/lightTheme";
 import createEmotionCache from "../utility/createEmotionCache";
 
+// MUI Core
+import { ServerStyleSheets } from "@material-ui/core/styles";
+
 export default class MyDocument extends Document {
   render() {
     return (
@@ -11,7 +14,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={lightTheme.palette.mode} />
-          <link rel="shortcut icon" href="/static/favicon.ico" />
+
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -31,6 +34,7 @@ export default class MyDocument extends Document {
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
   // You can consider sharing the same emotion cache between
@@ -44,7 +48,8 @@ MyDocument.getInitialProps = async (ctx) => {
     originalRenderPage({
       enhanceApp: (App) =>
         function EnhanceApp(props) {
-          return <App emotionCache={cache} {...props} />;
+          return sheets.collect(<App {...props} />);
+          //return <App emotionCache={cache} {...props} />;
         },
     });
 
@@ -67,5 +72,9 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     emotionStyleTags,
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
   };
 };
