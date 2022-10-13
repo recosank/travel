@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "env-cmd -f .env.production next build",
+    "build": "env-cmd -f ./.env.production next build",
     "start": "next start",
     "heroku-postbuild": "npm run build",
     "lint": "next lint"
