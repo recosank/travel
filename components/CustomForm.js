@@ -124,7 +124,7 @@ const CustomForm = () => {
             }}
             onChange={(e) => handleChange(e)}
           >
-            <MenuItem value="Select Packege">Select Peckage</MenuItem>
+            <MenuItem value="Select Packege">Select Peckege</MenuItem>
             <MenuItem value="Low-end">Low-end</MenuItem>
             <MenuItem value="Affordable">Affordable</MenuItem>
             <MenuItem value="Luxury">Luxury</MenuItem>

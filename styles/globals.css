@@ -16,6 +16,9 @@ a {
 :root {
   --fs_xn: 16px;
 }
+.carousel-status {
+  display: none;
+}
 .fs_xn {
   font-size: var(--fs_xn);
 }

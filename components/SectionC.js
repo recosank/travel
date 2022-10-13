@@ -6,11 +6,14 @@ import {
   CardContent,
   Card,
   useTheme,
+  Button,
   useMediaQuery,
 } from "@mui/material";
 import Image from "next/future/image";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 import { clientData } from "../utility/travelData";
 
@@ -22,9 +25,16 @@ const SectionC = () => {
   const matchesXSS = useMediaQuery("(min-width:450px)");
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
+  const [read, setread] = useState(false);
   const [ind, setind] = useState(0);
-
+  const handleRead = () => {
+    setread(true);
+  };
+  const handleReadOff = () => {
+    setread(false);
+  };
   const handleIndFwd = () => {
+    setread(false);
     if (ind == clientData.length - 1) {
       setind(clientData.length);
     } else {
@@ -32,6 +42,7 @@ const SectionC = () => {
     }
   };
   const handleIndBwd = () => {
+    setread(false);
     if (ind == 0) {
       setind(0);
     } else {
@@ -77,7 +88,7 @@ const SectionC = () => {
       <Card
         sx={{
           position: "relative",
-          width: matchesMD ? (matchesXL ? "60%" : "90%") : "100%",
+          width: matchesMD ? (matchesXL ? "60%" : "80%") : "100%",
           boxShadow: "15px 10px 25px -25px black",
           overflow: "visible",
           borderRadius: "15px",
@@ -168,16 +179,43 @@ const SectionC = () => {
             <Typography
               px={matchesSM ? 2 : 0}
               variant={matches ? "h6" : "body2"}
-              sx={{ textAlign: "center", fontWeight: "200" }}
+              sx={{
+                textAlign: "center",
+                fontWeight: "200",
+                height: "100%",
+              }}
               color="text.secondary"
             >
-              {clientData[ind].content}
-              {matches && (
-                <Typography variant="span ">
-                  mus malesuada id massa posuere lacinia blandit nulla. Volutpat
-                  nibh placerat tristique nibh non.Turpis felis, turpis donec
-                  turpis platea.
-                </Typography>
+              {read
+                ? clientData[ind].content
+                : clientData[ind].content.slice(0, 190)}
+              <br />
+              {!read ? (
+                <Button
+                  variant="span"
+                  size="sm"
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: "500",
+                    color: "lime",
+                  }}
+                  onClick={() => handleRead()}
+                >
+                  <ExpandMoreIcon />
+                </Button>
+              ) : (
+                <Button
+                  variant="span"
+                  size="sm"
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: "500",
+                    color: "lime",
+                  }}
+                  onClick={() => handleReadOff()}
+                >
+                  <ExpandLessIcon />
+                </Button>
               )}
             </Typography>
           </CardContent>

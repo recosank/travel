@@ -76,6 +76,7 @@ const Banner = () => {
         >
           <Typography
             sx={{
+              textShadow: "3px 3px 10px #FFDEAD",
               color: "white",
               fontWeight: "800",
               fontSize: matchesXSS
@@ -91,10 +92,14 @@ const Banner = () => {
                 : "6.5vw",
             }}
           >
-            WELCOME TO &nbsp;
+            WELCOME TO&nbsp;
             <Typography
               variant="span"
-              sx={{ color: "#00754A", textTransform: "none" }}
+              sx={{
+                color: "#00754A",
+                textTransform: "none",
+                textShadow: "none",
+              }}
             >
               Himalaya
             </Typography>
@@ -105,7 +110,7 @@ const Banner = () => {
           <Typography
             variant={matchesXSS ? (matchesLG ? "h5" : "h6") : "subtitle1"}
             my={1}
-            sx={{ color: "white" }}
+            sx={{ color: "white", textShadow: "3px 3px 10px #FFDEAD" }}
           >
             Lowest Price Guarnteed
           </Typography>

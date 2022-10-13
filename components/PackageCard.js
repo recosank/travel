@@ -14,6 +14,7 @@ import fire from "../public/fire.png";
 import ButtonCustom from "./CustomButton";
 
 const PackageCard = ({ name, price, img, stay, quality }) => {
+  console.log("name", name);
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -75,7 +76,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
             "&:hover": {
               backgroundColor: "white",
             },
-            marginLeft: matchesMD ? "-8rem" : "-6rem",
+            right: "10%",
           }}
         >
           Rs. {price}
@@ -124,7 +125,10 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
                 style={{ objectFit: "contain" }}
               />
               <Typography
-                sx={{ fontSize: matchesMD ? "0.6rem" : "0.5rem" }}
+                sx={{
+                  width: matches ? "400%" : "400%",
+                  fontSize: matchesMD ? "0.6rem" : "0.5rem",
+                }}
                 px={1}
                 color="#00754A"
               >

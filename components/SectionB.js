@@ -4,13 +4,26 @@ import Image from "next/future/image";
 import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const SectionB = () => {
   const theme = useTheme();
-
+  //const settings = {
+  //  className: "center",
+  //  infinite: false,
+  //  centerPadding: "60px",
+  //  slidesToShow: 5,
+  //  swipeToSlide: true,
+  //  //afterChange: function (index) {
+  //  //  console.log(
+  //  //    `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
+  //  //  );
+  //  //},
+  //};
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -40,6 +53,7 @@ const SectionB = () => {
       display="flex"
       flexDirection="column"
       justifyContent="center"
+      overflow="hidden"
       alignItems="center"
     >
       <Typography
@@ -57,7 +71,7 @@ const SectionB = () => {
                     : "3rem"
                   : "2.7rem"
                 : "2.4rem"
-              : "1.9rem"
+              : "1.85rem"
             : "1.3rem",
         }}
       >
@@ -95,82 +109,66 @@ const SectionB = () => {
           })}
         </Grid>
       ) : (
-        <Box
-          sx={{
-            position: "relative",
-            width: "90%",
-            overflow: "visible",
-            borderRadius: "15px",
-          }}
+        <Carousel
+          showStatus={false}
+          showArrows={false}
+          showIndicators={false}
+          showThumbs={false}
         >
-          <ArrowBackIosIcon
-            color="black"
-            fontSize="small"
-            sx={{
-              visibility: ind == 0 && "hidden",
-              height: "2.4rem",
-              width: "2.4rem",
-              padding: "9px",
-              paddingRight: "4px",
-              backgroundColor: "white",
-              color: "black",
-              boxShadow: "0px 2px 25px -14px black",
-              position: "absolute",
-              zIndex: "90",
-              top: "45%",
-              left: matches ? "-2%" : "-4%",
-              borderRadius: "100px",
-            }}
-            onClick={handleIndBwd}
-          />
-          <ArrowForwardIosIcon
-            sx={{
-              visibility: ind == packageData.length - 1 && "hidden",
-              height: "2.5rem",
-              width: "2.5rem",
-              padding: "9px",
-              paddingRight: "4px",
-              backgroundColor: "white",
-              color: "black",
-              boxShadow: "0px 2px 25px -14px black",
-              position: "absolute",
-              zIndex: "90",
-              top: "45%",
-              right: "-3.5%",
-              borderRadius: "100px",
-            }}
-            onClick={handleIndFwd}
-          />
-          <Box
-            sx={{
-              width: "85%",
-              zIndex: "40",
-              margin: "auto",
-            }}
-          >
-            <Box
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
-              alignItems="center"
-              py={5}
-              sx={{
-                textAlign: "center",
-
-                zIndex: "40",
-              }}
-            >
-              <PackageCard
-                img={packageData[ind].img}
-                name={packageData[ind].name}
-                price={packageData[ind].price}
-                stay={packageData[ind].stay}
-                quality={packageData[ind].quality}
-              />
-            </Box>
-          </Box>
-        </Box>
+          {packageData.map((data, key) => {
+            return (
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "95%",
+                  overflow: "hidden",
+                  borderRadius: "15px",
+                  margin: "auto",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "85%",
+                    zIndex: "40",
+                    margin: "auto",
+                  }}
+                >
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                    flexDirection="column"
+                    alignItems="center"
+                    py={5}
+                    sx={{
+                      textAlign: "center",
+                      zIndex: "40",
+                      left: "50%",
+                    }}
+                  >
+                    <PackageCard
+                      img={data.img}
+                      name={data.name}
+                      price={data.price}
+                      stay={data.stay}
+                      quality={data.quality}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            );
+          })}
+        </Carousel>
       )}
+      {
+        //
+        //  <PackageCard
+        //    img={packageData[ind].img}
+        //    name={packageData[ind].name}
+        //    price={packageData[ind].price}
+        //    stay={packageData[ind].stay}
+        //    quality={packageData[ind].quality}
+        //  />
+      }
 
       <ButtonCustom
         href="#topex"
