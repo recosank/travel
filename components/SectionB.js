@@ -112,7 +112,7 @@ const SectionB = () => {
         <Carousel
           showStatus={false}
           showArrows={false}
-          showIndicators={false}
+          showIndicators={true}
           showThumbs={false}
         >
           {packageData.map((data, key) => {
@@ -120,7 +120,6 @@ const SectionB = () => {
               <Box
                 key={key}
                 sx={{
-                  position: "relative",
                   width: "95%",
                   overflow: "hidden",
                   borderRadius: "15px",
@@ -128,32 +127,28 @@ const SectionB = () => {
                 }}
               >
                 <Box
+                  display="flex"
+                  justifyContent="center"
+                  flexDirection="column"
+                  alignItems="center"
+                  py={5}
                   sx={{
                     width: "85%",
                     zIndex: "40",
                     margin: "auto",
+                    border: "2px solid red",
+                    textAlign: "center",
+                    zIndex: "40",
+                    //left: "50%",
                   }}
                 >
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    flexDirection="column"
-                    alignItems="center"
-                    py={5}
-                    sx={{
-                      textAlign: "center",
-                      zIndex: "40",
-                      left: "50%",
-                    }}
-                  >
-                    <PackageCard
-                      img={data.img}
-                      name={data.name}
-                      price={data.price}
-                      stay={data.stay}
-                      quality={data.quality}
-                    />
-                  </Box>
+                  <PackageCard
+                    img={data.img}
+                    name={data.name}
+                    price={data.price}
+                    stay={data.stay}
+                    quality={data.quality}
+                  />
                 </Box>
               </Box>
             );

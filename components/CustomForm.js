@@ -53,7 +53,7 @@ const CustomForm = () => {
       mr="1%"
       //mx={3}
       px={matchesMD && matchesMMD && 4}
-      width={matchesSM ? "90%" : matchesMMD ? "90%" : matchesLG ? "30%" : "45%"}
+      width={matchesSM ? "90%" : matchesMMD ? "90%" : matchesLG ? "30%" : "55%"}
       sx={{
         borderRadius: "10px",
         backgroundColor: "rgba(0, 0, 0, 0.6)",
