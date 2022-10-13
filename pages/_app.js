@@ -14,6 +14,10 @@ const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -26,7 +30,9 @@ export default function MyApp(props) {
 				build upon. */}
 
         <CssBaseline />
-        <Component {...pageProps} />
+        <div style={{ visibility: mounted ? "visible" : "hidden" }}>
+          <Component {...pageProps} />
+        </div>
       </ThemeProvider>
     </CacheProvider>
   );
