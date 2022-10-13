@@ -136,7 +136,7 @@ const SectionB = () => {
                     width: "85%",
                     zIndex: "40",
                     margin: "auto",
-                    border: "2px solid red",
+
                     textAlign: "center",
                     zIndex: "40",
                     //left: "50%",
