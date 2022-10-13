@@ -134,6 +134,7 @@ const SectionC = () => {
         />
 
         <Box
+          key={clientData[ind].name}
           sx={{
             width: matchesMD ? "85%" : "100%",
             zIndex: "40",

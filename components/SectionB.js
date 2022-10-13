@@ -118,6 +118,7 @@ const SectionB = () => {
           {packageData.map((data, key) => {
             return (
               <Box
+                key={key}
                 sx={{
                   position: "relative",
                   width: "95%",
