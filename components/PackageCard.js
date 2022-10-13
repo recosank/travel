@@ -27,7 +27,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
   return (
     <Card
       sx={{
-        width: "90%",
+        width: "100%",
         margin: "auto",
         textAlign: "center",
         backgroundColor: "#FFFFFF",

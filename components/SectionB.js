@@ -12,18 +12,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const SectionB = () => {
   const theme = useTheme();
-  //const settings = {
-  //  className: "center",
-  //  infinite: false,
-  //  centerPadding: "60px",
-  //  slidesToShow: 5,
-  //  swipeToSlide: true,
-  //  //afterChange: function (index) {
-  //  //  console.log(
-  //  //    `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-  //  //  );
-  //  //},
-  //};
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -77,71 +65,31 @@ const SectionB = () => {
       >
         Best Selling Tour Packages
       </Typography>
-      {matches ? (
-        <Grid
-          container
-          justifyContent="space-between"
-          alignItems="center"
-          rowSpacing={5}
-          width={
-            matchesMD
-              ? matches
-                ? matchesLG
-                  ? "80%"
-                  : "100%"
-                : "80%"
-              : "100%"
-          }
-          columnSpacing={5}
-        >
-          {packageData.map((data, key) => {
-            return (
-              <Grid item md={6} key={key}>
-                <PackageCard
-                  img={data.img}
-                  name={data.name}
-                  price={data.price}
-                  stay={data.stay}
-                  quality={data.quality}
-                />
-              </Grid>
-            );
-          })}
-        </Grid>
-      ) : (
-        <Carousel
-          showStatus={false}
-          showArrows={false}
-          showIndicators={true}
-          showThumbs={false}
-        >
-          {packageData.map((data, key) => {
-            return (
-              <Box key={key} className={styles.cardMain}>
-                <Box className={styles.cardSec}>
-                  <PackageCard
-                    img={data.img}
-                    name={data.name}
-                    price={data.price}
-                    stay={data.stay}
-                    quality={data.quality}
-                  />
-                </Box>
-              </Box>
-            );
-          })}
-        </Carousel>
-      )}
-      {
-        //
-        //  <PackageCard
-        //    img={packageData[ind].img}
-        //    name={packageData[ind].name}
-        //    price={packageData[ind].price}
-        //    stay={packageData[ind].stay}
-        //    quality={packageData[ind].quality}
-        //  />
-      }
+
+      <Grid
+        container
+        justifyContent="space-between"
+        alignItems="center"
+        rowSpacing={5}
+        width={
+          matchesMD ? (matches ? (matchesLG ? "80%" : "100%") : "80%") : "100%"
+        }
+        columnSpacing={5}
+      >
+        {packageData.map((data, key) => {
+          return (
+            <Grid item md={6} sm={10} key={key} sx={{ margin: "auto" }}>
+              <PackageCard
+                img={data.img}
+                name={data.name}
+                price={data.price}
+                stay={data.stay}
+                quality={data.quality}
+              />
+            </Grid>
+          );
+        })}
+      </Grid>
 
       <ButtonCustom
         href="#topex"
@@ -169,3 +117,27 @@ const SectionB = () => {
 };
 
 export default SectionB;
+{
+  // <Carousel
+  //        showStatus={false}
+  //        showArrows={false}
+  //        showIndicators={true}
+  //        showThumbs={false}
+  //      >
+  //        {packageData.map((data, key) => {
+  //          return (
+  //            <Box key={key} className={styles.cardMain}>
+  //              <Box className={styles.cardSec}>
+  //                <PackageCard
+  //                  img={data.img}
+  //                  name={data.name}
+  //                  price={data.price}
+  //                  stay={data.stay}
+  //                  quality={data.quality}
+  //                />
+  //              </Box>
+  //            </Box>
+  //          );
+  //        })}
+  //      </Carousel>
+}
