@@ -6,7 +6,7 @@ import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
+import styles from "../styles/Home.module.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -117,31 +117,8 @@ const SectionB = () => {
         >
           {packageData.map((data, key) => {
             return (
-              <Box
-                key={key}
-                sx={{
-                  width: "95%",
-                  overflow: "hidden",
-                  borderRadius: "15px",
-                  margin: "auto",
-                }}
-              >
-                <Box
-                  display="flex"
-                  justifyContent="center"
-                  flexDirection="column"
-                  alignItems="center"
-                  py={5}
-                  sx={{
-                    width: "85%",
-                    zIndex: "40",
-                    margin: "auto",
-
-                    textAlign: "center",
-                    zIndex: "40",
-                    //left: "50%",
-                  }}
-                >
+              <Box key={key} className={styles.cardMain}>
+                <Box className={styles.cardSec}>
                   <PackageCard
                     img={data.img}
                     name={data.name}
