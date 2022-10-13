@@ -32,6 +32,8 @@ const CustomForm = () => {
     setdata({ ...data, [e.target.name]: e.target.value });
     console.log(data);
   };
+  console.log("end piut ashfg", process.env.NEXT_PUBLIC_API_ENDPOINT);
+  console.log("end piut ashfg", process.env.API_ENDPOINT);
   const handleQuery = () => {
     localStorage.setItem("packageQuery", JSON.stringify(data));
     axios
