@@ -13,12 +13,24 @@ import {
 import ButtonCustom from "./CustomButton";
 import axios from "axios";
 import { RefContext } from "./context/ContextData";
+import Alert from "@mui/material/Alert";
+import ReCAPTCHA from "react-google-recaptcha";
+import IconButton from "@mui/material/IconButton";
+import Collapse from "@mui/material/Collapse";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CloseIcon from "@mui/icons-material/Close";
+const recaptchaPublicKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const CustomForm = () => {
   const { setReff } = useContext(RefContext);
+  const recaptchaRef = React.createRef();
+
   const nameRef = useRef(null);
 
   const theme = useTheme();
+  const cacheLG = useMediaQuery("(min-width:992px)");
+  const cacheXS = useMediaQuery("(min-width:300px)");
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesMMD = useMediaQuery("(max-width:768px)");
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -37,15 +49,26 @@ const CustomForm = () => {
   };
 
   const handleQuery = () => {
-    localStorage.setItem("packageQuery", JSON.stringify(data));
-    axios
-      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, data, {
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    if (!recaptchaRef.current.getValue()) {
+      toast.error("Captcha required !", { position: "bottom-center" });
+    } else {
+      const userData = {
+        name: data.name,
+        phone: data.phone,
+        packege: data.packege,
+        "g-recaptcha-response": recaptchaRef.current.getValue(),
+      };
+      localStorage.setItem("packageQuery", JSON.stringify(data));
+      axios
+        .post(process.env.NEXT_PUBLIC_API_ENDPOINT, userData, {
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+          },
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+
     setdata(init);
   };
 
@@ -108,10 +131,10 @@ const CustomForm = () => {
           variant="filled"
           onChange={(e) => handleChange(e)}
         />
-
         <TextField
           type="tel"
           hiddenLabel
+          inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
           size={matchesLG ? "medium" : "small"}
           placeholder="Phone number"
           name="phone"
@@ -142,6 +165,24 @@ const CustomForm = () => {
             <MenuItem value="Luxury">Luxury</MenuItem>
           </Select>
         </FormControl>
+        <ToastContainer />
+        <Box
+          sx={{
+            transform: cacheLG
+              ? "scale(0.85)"
+              : cacheXS
+              ? "scale(0.7)"
+              : "scale(0.75)",
+            transformOrigin: "0 0",
+            margin: "0 auto",
+          }}
+        >
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          />
+        </Box>
+
         <ButtonCustom
           content="Send Enquiry"
           wd="100%"
