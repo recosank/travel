@@ -40,7 +40,7 @@ const CustomForm = () => {
   const handleQuery = () => {
     localStorage.setItem("packageQuery", JSON.stringify(data));
     axios
-      .post(process.env.API_ENDPOINT, data)
+      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     setdata(init);
