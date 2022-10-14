@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Button,
   Typography,
@@ -12,8 +12,10 @@ import {
 import Image from "next/future/image";
 import fire from "../public/fire.png";
 import ButtonCustom from "./CustomButton";
+import { RefContext } from "./context/ContextData";
 
 const PackageCard = ({ name, price, img, stay, quality }) => {
+  const { Reff } = useContext(RefContext);
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -23,6 +25,10 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMMD = useMediaQuery("(max-width:768px)");
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
+
+  const trigerRef = () => {
+    Reff.current.focus();
+  };
 
   return (
     <Card
@@ -194,6 +200,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
         mrgb="4%"
         fill="false"
         click="tru"
+        onSub={trigerRef}
       />
     </Card>
   );
