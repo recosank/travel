@@ -38,9 +38,12 @@ const CustomForm = () => {
 
   const handleQuery = () => {
     localStorage.setItem("packageQuery", JSON.stringify(data));
-    console.log(data);
     axios
-      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, data)
+      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, data, {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     setdata(init);
