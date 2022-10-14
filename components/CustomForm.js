@@ -27,18 +27,18 @@ const CustomForm = () => {
   let init = {
     name: "",
     phone: "",
-    package: "Select Package",
+    packege: "Select Package",
   };
   const [data, setdata] = useState(init);
 
   const handleChange = (e) => {
     e.preventDefault();
     setdata({ ...data, [e.target.name]: e.target.value });
-    console.log(data);
   };
 
   const handleQuery = () => {
     localStorage.setItem("packageQuery", JSON.stringify(data));
+    console.log(data);
     axios
       .post(process.env.NEXT_PUBLIC_API_ENDPOINT, data)
       .then((res) => console.log(res))
@@ -121,9 +121,9 @@ const CustomForm = () => {
         <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
             displayEmpty
-            value={data.package}
+            value={data.packege}
             placeholder="select package"
-            name="package"
+            name="packege"
             inputProps={{ "aria-label": "Without label" }}
             sx={{
               backgroundColor: "#e3f2fd",
