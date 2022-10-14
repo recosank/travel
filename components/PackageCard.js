@@ -68,6 +68,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
           src={img}
           layout="fill"
           width="100%"
+          alt="package card"
           style={{
             height: "100%",
             width: "100%",
@@ -133,6 +134,7 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
             >
               <Image
                 src={fire}
+                alt="fire icon"
                 layout="fixed"
                 height={matchesMD ? 20 : 13}
                 style={{ objectFit: "contain" }}

@@ -51,7 +51,7 @@ const CustomForm = () => {
 
   useEffect(() => {
     setReff(nameRef);
-  }, [nameRef]);
+  }, [nameRef, setReff]);
   return (
     <Box
       display="flex"
