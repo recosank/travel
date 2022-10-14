@@ -125,6 +125,7 @@ const CustomForm = () => {
           size={matchesLG ? "medium" : "small"}
           placeholder="Name"
           name="name"
+          required={true}
           value={data.name}
           id="filled-hidden-label-small"
           sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
@@ -133,6 +134,7 @@ const CustomForm = () => {
         />
         <TextField
           type="tel"
+          required={true}
           hiddenLabel
           inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
           size={matchesLG ? "medium" : "small"}
@@ -148,6 +150,7 @@ const CustomForm = () => {
           <Select
             displayEmpty
             value={data.packege}
+            required={true}
             placeholder="select package"
             name="packege"
             inputProps={{ "aria-label": "Without label" }}
@@ -179,7 +182,7 @@ const CustomForm = () => {
         >
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            sitekey="6LdMwnoiAAAAAFkL7HdMdEH_U7znOtagObm7k_tR"
           />
         </Box>
 
