@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import {
   Box,
   Typography,
@@ -12,8 +12,12 @@ import {
 } from "@mui/material";
 import ButtonCustom from "./CustomButton";
 import axios from "axios";
+import { RefContext } from "./context/ContextData";
 
 const CustomForm = () => {
+  const { setReff } = useContext(RefContext);
+  const nameRef = useRef(null);
+
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesMMD = useMediaQuery("(max-width:768px)");
@@ -32,17 +36,19 @@ const CustomForm = () => {
     setdata({ ...data, [e.target.name]: e.target.value });
     console.log(data);
   };
-  console.log("end piut ashfg", process.env.NEXT_PUBLIC_API_ENDPOINT);
-  console.log("end piut ashfg", process.env.API_ENDPOINT);
+
   const handleQuery = () => {
     localStorage.setItem("packageQuery", JSON.stringify(data));
     axios
-      .post("https://formbold.com/s/3dOx9", data)
+      .post(process.env.API_ENDPOINT, data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     setdata(init);
   };
 
+  useEffect(() => {
+    setReff(nameRef);
+  }, [nameRef]);
   return (
     <Box
       display="flex"
@@ -88,6 +94,7 @@ const CustomForm = () => {
         autoComplete="off"
       >
         <TextField
+          inputRef={nameRef}
           hiddenLabel
           size={matchesLG ? "medium" : "small"}
           placeholder="Name"
@@ -100,6 +107,7 @@ const CustomForm = () => {
         />
 
         <TextField
+          type="tel"
           hiddenLabel
           size={matchesLG ? "medium" : "small"}
           placeholder="Phone number"
