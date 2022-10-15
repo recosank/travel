@@ -26,12 +26,12 @@ const Banner = () => {
         display="flex"
         flexDirection={matchesMMD ? "column" : "row"}
         justifyContent={matchesMMD ? "start" : "space-around"}
-        width={matchesXL ? "80%" : "100%"}
+        width={matchesXL ? "90%" : "100%"}
         alignContent="center"
         alignItems="center"
         mt={matchesSM ? 9 : 13}
         mb={8}
-        px={matchesMD ? (matchesMMD ? 7 : matches ? 7 : 4) : 0}
+        px={matchesMD ? (matchesMMD ? 7 : matches ? 3.1 : 4) : 0}
         sx={{
           zIndex: "20",
         }}
