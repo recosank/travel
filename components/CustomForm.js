@@ -301,7 +301,7 @@ const CustomForm = () => {
           {showCaptcha && (
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6LdMwnoiAAAAAFkL7HdMdEH_U7znOtagObm7k_tR"
+              sitekey="6Le03X0iAAAAAB4JBBaFMrCP_X6P7tnlW8AZa6lB"
               onChange={handleCaptcha}
             />
           )}
