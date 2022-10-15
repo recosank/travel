@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import useTheme from "@mui/material/useTheme";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Grid from "@mui/material/Grid";
 import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";

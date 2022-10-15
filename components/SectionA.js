@@ -1,5 +1,9 @@
 import React from "react";
-import { Typography, Box, useTheme, useMediaQuery, Grid } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import useTheme from "@mui/material/useTheme";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Grid from "@mui/material/Grid";
 import TravelCard from "./TravelCard";
 import { travelData } from "../utility/travelData";
 

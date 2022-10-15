@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
-import {
-  Button,
-  Typography,
-  CardActionArea,
-  Box,
-  CardContent,
-  Card,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import useTheme from "@mui/material/useTheme";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Button from "@mui/material/Button";
+import CardActionArea from "@mui/material/CardActionArea";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import Image from "next/future/image";
 import fire from "../public/fire.png";
 import ButtonCustom from "./CustomButton";

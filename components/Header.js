@@ -1,5 +1,8 @@
 import React from "react";
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import useTheme from "@mui/material/useTheme";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/future/image";
 import hIcon from "../public/hIcon.png";
 

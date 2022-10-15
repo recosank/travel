@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  CardActionArea,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
+import CardActionArea from "@mui/material/CardActionArea";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import useTheme from "@mui/material/useTheme";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/future/image";
 
 const TravelCard = ({ img, title, content }) => {
