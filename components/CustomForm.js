@@ -80,9 +80,12 @@ const CustomForm = () => {
         .then(
           (res) =>
             res.status == 201 &&
-            toast.success("Our team will get back to you Thanks.", {
-              position: "top-right",
-            })
+            toast.success(
+              "Thanks for contacting us! WE will get in touch with you shortly.",
+              {
+                position: "top-right",
+              }
+            )
         )
         .catch((err) => console.log(err));
     }
