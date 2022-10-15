@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import useTheme from "@mui/material/useTheme";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 import ButtonCustom from "./CustomButton";
 import CustomForm from "./CustomForm";
 import styles from "../styles/Home.module.css";
