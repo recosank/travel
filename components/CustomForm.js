@@ -8,24 +8,22 @@ import {
   FormControl,
   useTheme,
   useMediaQuery,
-  TextField,
 } from "@mui/material";
 import ButtonCustom from "./CustomButton";
 import axios from "axios";
 import { RefContext } from "./context/ContextData";
-import Alert from "@mui/material/Alert";
 import ReCAPTCHA from "react-google-recaptcha";
-import IconButton from "@mui/material/IconButton";
-import Collapse from "@mui/material/Collapse";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CloseIcon from "@mui/icons-material/Close";
+import { FormHelperText } from "@mui/material";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import validator from "validator";
+
 const recaptchaPublicKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const CustomForm = () => {
   const { setReff } = useContext(RefContext);
   const recaptchaRef = React.createRef();
-
   const nameRef = useRef(null);
 
   const theme = useTheme();
@@ -43,12 +41,26 @@ const CustomForm = () => {
   };
   const [data, setdata] = useState(init);
 
+  const initError = {
+    packageError: false,
+    phoneError: false,
+    nameError: false,
+  };
+  const [errorChk, seterrorChk] = useState(initError);
+
+  const validatePhoneNumber = (number) => {
+    const isValidPhoneNumber = validator.isMobilePhone(number);
+    return isValidPhoneNumber && number.length == 10;
+  };
+
+  const [showCaptcha, setshowCaptcha] = useState(false);
+
   const handleChange = (e) => {
     e.preventDefault();
     setdata({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleQuery = () => {
+  const handleCaptcha = (capData) => {
     if (!recaptchaRef.current.getValue()) {
       toast.error("Captcha required !", { position: "bottom-center" });
     } else {
@@ -65,16 +77,76 @@ const CustomForm = () => {
             "Content-Type": "application/json; charset=utf-8",
           },
         })
-        .then((res) => console.log(res))
+        .then(
+          (res) =>
+            res.status == 201 &&
+            toast.success("Our team will get back to you Thanks.", {
+              position: "top-right",
+            })
+        )
         .catch((err) => console.log(err));
     }
-
+    setshowCaptcha(false);
     setdata(init);
+  };
+
+  const handleQuery = () => {
+    if (
+      validatePhoneNumber(data.phone) &&
+      data.name != "" &&
+      data.packege != "Select Package"
+    ) {
+      seterrorChk(initError);
+      setshowCaptcha(true);
+    } else {
+      if (
+        data.name == "" &&
+        data.packege != "Select Package" &&
+        validatePhoneNumber(data.phone)
+      ) {
+        seterrorChk({
+          ...errorChk,
+          phoneError: false,
+          nameError: true,
+          packageError: false,
+        });
+      } else if (
+        data.name != "" &&
+        data.packege == "Select Package" &&
+        validatePhoneNumber(data.phone)
+      ) {
+        seterrorChk({
+          ...errorChk,
+          phoneError: false,
+          nameError: false,
+          packageError: true,
+        });
+      } else if (
+        data.name != "" &&
+        data.packege != "Select Package" &&
+        !validatePhoneNumber(data.phone)
+      ) {
+        seterrorChk({
+          ...errorChk,
+          phoneError: true,
+          nameError: false,
+          packageError: false,
+        });
+      } else {
+        seterrorChk({
+          ...errorChk,
+          phoneError: true,
+          nameError: true,
+          packageError: true,
+        });
+      }
+    }
   };
 
   useEffect(() => {
     setReff(nameRef);
   }, [nameRef, setReff]);
+
   return (
     <Box
       display="flex"
@@ -116,36 +188,70 @@ const CustomForm = () => {
           opacity: "1",
         }}
         spacing={3}
-        noValidate
         autoComplete="off"
       >
-        <TextField
-          inputRef={nameRef}
-          hiddenLabel
-          size={matchesLG ? "medium" : "small"}
-          placeholder="Name"
-          name="name"
-          required={true}
-          value={data.name}
-          id="filled-hidden-label-small"
-          sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px" }}
+        <FormControl
+          fullWidth
           variant="filled"
-          onChange={(e) => handleChange(e)}
-        />
-        <TextField
-          type="tel"
-          required={true}
-          hiddenLabel
-          inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-          size={matchesLG ? "medium" : "small"}
-          placeholder="Phone number"
-          name="phone"
-          value={data.phone}
-          id="filled-hidden-label-small"
-          sx={{ backgroundColor: "#e3f2fd", borderRadius: "5px", opacity: "1" }}
+          sx={{
+            borderRadius: "5px",
+          }}
+        >
+          <OutlinedInput
+            id="component-outlined"
+            placeholder="Name"
+            name="name"
+            required={true}
+            value={data.name}
+            inputRef={nameRef}
+            onChange={(e) => handleChange(e)}
+            sx={{ backgroundColor: "#e3f2fd" }}
+          />
+
+          {errorChk.nameError && (
+            <FormHelperText
+              id="component-error-text"
+              sx={{
+                color: "red",
+                color: "red",
+                marginLeft: "0px",
+                paddingLeft: "4%",
+              }}
+            >
+              Invalid Name
+            </FormHelperText>
+          )}
+        </FormControl>
+
+        <FormControl
+          fullWidth
           variant="filled"
-          onChange={(e) => handleChange(e)}
-        />
+          hiddenLabel
+          sx={{
+            borderRadius: "5px",
+          }}
+        >
+          <OutlinedInput
+            id="component-outlined"
+            placeholder="Phone number"
+            name="phone"
+            value={data.phone}
+            onChange={(e) => handleChange(e)}
+            sx={{ backgroundColor: "#e3f2fd" }}
+          />
+          {errorChk.phoneError && (
+            <FormHelperText
+              id="component-error-text"
+              sx={{
+                color: "red",
+                marginLeft: "0px",
+                paddingLeft: "4%",
+              }}
+            >
+              Invalid Phone Number
+            </FormHelperText>
+          )}
+        </FormControl>
         <FormControl fullWidth size={matchesLG ? "medium" : "small"}>
           <Select
             displayEmpty
@@ -167,8 +273,20 @@ const CustomForm = () => {
             <MenuItem value="Affordable">Affordable</MenuItem>
             <MenuItem value="Luxury">Luxury</MenuItem>
           </Select>
+          {errorChk.packageError && (
+            <FormHelperText id="component-error-text" sx={{ color: "red" }}>
+              Please Select Package
+            </FormHelperText>
+          )}
         </FormControl>
         <ToastContainer />
+        <ButtonCustom
+          content="Send Enquiry"
+          wd="100%"
+          pdy={matchesLG ? "1rem" : "0.5rem"}
+          fill="true"
+          onSub={handleQuery}
+        />
         <Box
           sx={{
             transform: cacheLG
@@ -180,19 +298,14 @@ const CustomForm = () => {
             margin: "0 auto",
           }}
         >
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey="6LdMwnoiAAAAAFkL7HdMdEH_U7znOtagObm7k_tR"
-          />
+          {showCaptcha && (
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey="6LdMwnoiAAAAAFkL7HdMdEH_U7znOtagObm7k_tR"
+              onChange={handleCaptcha}
+            />
+          )}
         </Box>
-
-        <ButtonCustom
-          content="Send Enquiry"
-          wd="100%"
-          pdy={matchesLG ? "1rem" : "0.5rem"}
-          fill="true"
-          onSub={handleQuery}
-        />
       </Stack>
     </Box>
   );
