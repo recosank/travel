@@ -42,9 +42,11 @@ const ButtonCustom = ({
         {content}{" "}
       </Typography>
       {spanContent && (
-        <Typography variant="subtitle1">
-          &nbsp; &nbsp; &nbsp;+91 7807021868
-        </Typography>
+        <a href="tel:7807021868" style={{ textDecoration: "none" }}>
+          <Typography variant="subtitle1" sx={{ color: "white" }}>
+            &nbsp; &nbsp; &nbsp;+91 7807021868
+          </Typography>
+        </a>
       )}
     </Button>
   );
