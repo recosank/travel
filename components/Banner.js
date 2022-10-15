@@ -84,30 +84,32 @@ const Banner = () => {
           >
             Lowest Price Guarnteed
           </Typography>
-          <ButtonCustom
-            row={matchesSM ? "false" : "true"}
-            content="Call Now!"
-            spanContent="+91 7807021868"
-            pdy={matchesSM ? "0.6rem" : "1rem"}
-            pdx={
-              matchesSM
-                ? matchesXSS
-                  ? matchesMD
-                    ? "2rem"
-                    : "1.8rem"
-                  : "1rem"
-                : matches
-                ? matchesLG
-                  ? matchesXL
-                    ? "4rem"
-                    : "3.7rem"
-                  : "3rem"
-                : "2rem"
-            }
-            mrg="5%"
-            mrgb="6%"
-            fill="true"
-          />
+          <a href="tel:7807021868" style={{ textDecoration: "none" }}>
+            <ButtonCustom
+              row={matchesSM ? "false" : "true"}
+              content="Call Now!"
+              spanContent="+91 7807021868"
+              pdy={matchesSM ? "0.6rem" : "1rem"}
+              pdx={
+                matchesSM
+                  ? matchesXSS
+                    ? matchesMD
+                      ? "2rem"
+                      : "1.8rem"
+                    : "1rem"
+                  : matches
+                  ? matchesLG
+                    ? matchesXL
+                      ? "4rem"
+                      : "3.7rem"
+                    : "3rem"
+                  : "2rem"
+              }
+              mrg="5%"
+              mrgb="6%"
+              fill="true"
+            />
+          </a>
         </Box>
         <CustomForm />
       </Box>
