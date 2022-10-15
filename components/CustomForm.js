@@ -196,6 +196,7 @@ const CustomForm = () => {
         <FormControl
           fullWidth
           variant="filled"
+          size={matchesLG ? "medium" : "small"}
           sx={{
             borderRadius: "5px",
           }}
@@ -230,6 +231,7 @@ const CustomForm = () => {
           fullWidth
           variant="filled"
           hiddenLabel
+          size={matchesLG ? "medium" : "small"}
           sx={{
             borderRadius: "5px",
           }}
@@ -304,7 +306,7 @@ const CustomForm = () => {
           {showCaptcha && (
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6Le03X0iAAAAAB4JBBaFMrCP_X6P7tnlW8AZa6lB"
+              sitekey="6LdMwnoiAAAAAFkL7HdMdEH_U7znOtagObm7k_tR"
               onChange={handleCaptcha}
             />
           )}
