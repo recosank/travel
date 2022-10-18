@@ -5,7 +5,6 @@ import lightTheme from "../styles/Theme/lightTheme";
 import createEmotionCache from "../utility/createEmotionCache";
 
 // MUI Core
-//import { ServerStyleSheets } from "@material-ui/core/styles";
 
 export default class MyDocument extends Document {
   render() {
@@ -20,10 +19,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap"
             rel="stylesheet"
           />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>
@@ -39,7 +35,6 @@ export default class MyDocument extends Document {
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
-  //const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
   // You can consider sharing the same emotion cache between
@@ -77,9 +72,5 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     emotionStyleTags,
-    //styles: [
-    //  ...React.Children.toArray(initialProps.styles),
-    //  sheets.getStyleElement(),
-    //],
   };
 };

@@ -25,16 +25,8 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={lightTheme}>
-        {/* CssBaseline kickstart an elegant,
-				consistent, and simple baseline to
-				build upon. */}
         <CssBaseline />
-        {
-          mounted && <Component {...pageProps} />
-          //<div style={{ visibility: mounted ? "visible" : "hidden" }}>
-          //  <Component {...pageProps} />
-          //</div><Component {...pageProps} />
-        }
+        {mounted && <Component {...pageProps} />}
       </ThemeProvider>
     </CacheProvider>
   );
