@@ -4,7 +4,12 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Grid from "@mui/material/Grid";
-import TravelCard from "./TravelCard";
+import dynamic from "next/dynamic";
+
+const DynamicTravelCard = dynamic(() => import("./TravelCard"), {
+  ssr: false,
+});
+//import TravelCard from "./TravelCard";
 import { travelData } from "../utility/travelData";
 
 const SectionA = () => {
@@ -57,7 +62,7 @@ const SectionA = () => {
         {travelData.map((data, key) => {
           return (
             <Grid item xs={6} md={3} key={key}>
-              <TravelCard
+              <DynamicTravelCard
                 img={data.img}
                 title={data.title}
                 content={data.content}

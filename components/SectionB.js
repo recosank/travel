@@ -4,9 +4,13 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Grid from "@mui/material/Grid";
-import PackageCard from "./PackageCard";
+import dynamic from "next/dynamic";
+//import PackageCard from "./PackageCard";
 import ButtonCustom from "./CustomButton";
 import { packageData } from "../utility/travelData";
+const DynamicPackageCard = dynamic(() => import("./PackageCard"), {
+  ssr: false,
+});
 
 const SectionB = () => {
   const theme = useTheme();
@@ -71,7 +75,7 @@ const SectionB = () => {
         {packageData.map((data, key) => {
           return (
             <Grid item md={6} sm={10} key={key} sx={{ margin: "auto" }}>
-              <PackageCard
+              <DynamicPackageCard
                 img={data.img}
                 name={data.name}
                 price={data.price}
