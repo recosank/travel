@@ -36,6 +36,8 @@ const TravelCard = ({ img, title, content }) => {
       >
         <Image
           src={img}
+          width={100}
+          height={100}
           alt="mountains"
           style={{
             width: matchesXL ? 50 : 40,

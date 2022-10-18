@@ -27,6 +27,7 @@ const SectionB = () => {
       overflow="hidden"
       alignItems="center"
     >
+      {console.log("impotted B")}
       <Typography
         my={matchesMD ? (matchesLG ? 12 : 9) : 5}
         mt={matchesMD ? (matchesLG ? 15 : 11) : 7}

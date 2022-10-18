@@ -8,6 +8,7 @@ import TravelCard from "./TravelCard";
 import { travelData } from "../utility/travelData";
 
 const SectionA = () => {
+  console.log("imported season A");
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.up("md"));

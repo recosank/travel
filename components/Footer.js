@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 
 const Footer = () => {
   const theme = useTheme();
-
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const matchesMD = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesLG = useMediaQuery(theme.breakpoints.up("lg"));

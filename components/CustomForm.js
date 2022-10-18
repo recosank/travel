@@ -200,7 +200,7 @@ const CustomForm = () => {
           }}
         >
           <OutlinedInput
-            id="component-outlined"
+            id="component-outlined name-input"
             placeholder="Name"
             name="name"
             required={true}
@@ -235,7 +235,7 @@ const CustomForm = () => {
           }}
         >
           <OutlinedInput
-            id="component-outlined"
+            id="component-outlined phone-input"
             placeholder="Phone number"
             name="phone"
             value={data.phone}

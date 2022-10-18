@@ -28,11 +28,13 @@ export default function MyApp(props) {
         {/* CssBaseline kickstart an elegant,
 				consistent, and simple baseline to
 				build upon. */}
-
         <CssBaseline />
-        <div style={{ visibility: mounted ? "visible" : "hidden" }}>
-          <Component {...pageProps} />
-        </div>
+        {
+          mounted && <Component {...pageProps} />
+          //<div style={{ visibility: mounted ? "visible" : "hidden" }}>
+          //  <Component {...pageProps} />
+          //</div><Component {...pageProps} />
+        }
       </ThemeProvider>
     </CacheProvider>
   );

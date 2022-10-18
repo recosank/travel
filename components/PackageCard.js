@@ -8,7 +8,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Image from "next/future/image";
-import fire from "../public/fire.png";
+//import fire from "../public/fire.png";
 import ButtonCustom from "./CustomButton";
 import { RefContext } from "./context/ContextData";
 
@@ -64,8 +64,9 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
       >
         <Image
           src={img}
-          layout="fill"
-          width="100%"
+          layout="responsive"
+          width={550}
+          height={300}
           alt="package card"
           style={{
             height: "100%",
@@ -131,9 +132,10 @@ const PackageCard = ({ name, price, img, stay, quality }) => {
               }}
             >
               <Image
-                src={fire}
+                src="https://ik.imagekit.io/88qvg7egq/smartTraveler/fire_ye-y1ew88.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1666074109689"
                 alt="fire icon"
-                layout="fixed"
+                layout="resposive"
+                width={15}
                 height={matchesMD ? 20 : 13}
                 style={{ objectFit: "contain" }}
               />

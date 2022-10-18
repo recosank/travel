@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/future/image";
-import hIcon from "../public/hIcon.png";
+//import hIcon from "../public/hIcon.png";
 
 const Header = () => {
   const theme = useTheme();
@@ -34,7 +34,12 @@ const Header = () => {
             : 0
         }
       >
-        <Image src={hIcon} alt="smart traveller icon" width={60} height={60} />
+        <Image
+          src="https://ik.imagekit.io/88qvg7egq/smartTraveler/hIcon_zdIUiQn_6Q.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1666083033394"
+          alt="smart traveller icon"
+          width={60}
+          height={60}
+        />
         <Typography variant="subtitle2" px={1} sx={{ color: "#00754A" }}>
           The Smart Traveller
         </Typography>

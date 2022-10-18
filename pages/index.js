@@ -1,4 +1,5 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
 
 export default function Home() {

@@ -151,6 +151,8 @@ const SectionC = () => {
           >
             <Image
               src={clientData[ind].img}
+              width={100}
+              height={100}
               alt="client avatar"
               style={{
                 width: matches ? 110 : 90,
